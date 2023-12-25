@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login Page</title>
     <link rel="stylesheet" href="../style/login.css">
+    <link rel="icon" type="image/x-icon" href="../assets/logo.png">
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-firestore.js"></script>
@@ -56,6 +57,11 @@
             />
           </div>
           <p id="message"></p>
+
+          <div class="captcha">
+            tempat capthca
+          </div>
+
           <div class="div-4">
             <button id="login" onClick="Login()">Log In</button>
           </div>
@@ -75,7 +81,9 @@
           <div class="div-5">
             <p onClick="forgetPassword()">Forgot Password? <span>click here!</span></p>
           </div>
-          
+          <div class="div-6">
+            <p>Are you an admin? <span>login here!</span></p>
+          </div>
         </div>
       </div>
     </div>

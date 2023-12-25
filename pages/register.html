@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>register</title>
+    <title>Signup Page</title>
+    <link rel="icon" type="image/x-icon" href="../assets/logo.png">
     <link rel="stylesheet" href="../style/register.css">
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
@@ -29,30 +30,33 @@
             <span id="login" onClick="Login()">Log In</span>
           </p>
         </div>
-        <div class="div-3">
-          <div class="div-h3">
-            <h4>First Name :</h4>
+        <div class="fullname">
+          <div class="div-3">
+            <div class="div-h3">
+              <h4>First Name :</h4>
+            </div>
+            <input
+              type="type"
+              class="input"
+              placeholder="First Name"
+              id="firstname"
+              name="FirstName"
+            />
           </div>
-          <input
-            type="type"
-            class="input"
-            placeholder="First Name"
-            id="firstname"
-            name="FirstName"
-          />
-        </div>
-        <div class="div-3">
-          <div class="div-h3">
-            <h4>Last Name :</h4>
+          <div class="div-3">
+            <div class="div-h3">
+              <h4>Last Name :</h4>
+            </div>
+            <input
+              type="type"
+              class="input"
+              placeholder="Last Name"
+              id="lastname"
+              name="LastName"
+            />
           </div>
-          <input
-            type="type"
-            class="input"
-            placeholder="Last Name"
-            id="lastname"
-            name="LastName"
-          />
         </div>
+        
         <div class="div-3">
           <div class="div-h3">
             <h4>Username</h4>

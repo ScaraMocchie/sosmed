@@ -31,6 +31,11 @@ h2{
     margin-left: 30%;
 }
 
+.fullname{
+    display: flex;
+    gap: 40px;
+}
+
 .logo img{
     width: 60px;
 }
@@ -54,7 +59,7 @@ h2{
     box-shadow: 0 0 50px #ff689541;
     align-items: center;
     justify-content: center;
-    margin-top: 5%;
+    margin-top: 12%;
     z-index: 2;
     position: relative;
     width: 100%;
