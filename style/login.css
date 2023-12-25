@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=Lexend+Deca:wght@200;300;400;500;600;700;800&display=swap');
+
+*{
+    font-family: 'Borel', cursive;
+    font-family: 'Lexend Deca', sans-serif;
+    color: #575757;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    /* background-color: #F9E6EA; */
+    background-image: url("../assets/background.png");
+    background-attachment: fixed;
+    background-size: cover;
+
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: space-between;
+    gap: 250px;
+    align-items: center;
+    margin-top: 10px;
+}
+
+h2{
+    font-family: 'Borel', cursive;
+}
+
+.editorial{
+    width: 550px;
+    margin-left: 30%;
+}
+
+.logo img{
+    width: 60px;
+}
+
+.logo h2{
+    padding-top: 20px;
+}
+
+.logo{
+    display: flex;
+    font-size: 25px;
+    align-items: center;
+    gap: 8px;
+    margin: 6px 30px;
+}
+
+.main{
+    background-color: white;
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 0 50px #ff689541;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+    z-index: 2;
+    position: relative;
+    width: max-content;
+    right: 30%;
+    top: 30px;
+}
+
+.main p{
+    margin: 0;
+    padding-bottom: 40px;
+    font-weight: 300;
+}
+
+.main span{
+    color: rgb(254, 108, 132);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.main span:hover{
+    text-decoration: underline;
+}
+
+.main h2{
+    font-size: 50px;
+    margin: 0;
+    line-height: 0.5;
+    padding-top: 40px;
+}
+
+input{
+    width: 90%;
+    height: 24px;
+    padding: 8px 16px;
+    border: none;
+    background-color: rgb(243, 243, 243);
+    border-radius: 20px;
+}
+
+.div-h3 h4{
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+button{
+    width: 100%;
+    height: 40px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+    background-color: #C2C3E1;
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: .6s;
+}
+
+.divider{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 5px;
+}
+
+.divider p{
+    margin: 0;
+    padding: 0;
+}
+
+.line{
+    background: black;
+    width: 100%;
+    height: 0.5px;
+}
+
+.gugel p{
+    color: black;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.div-6 button{
+    outline: 2px solid black;
+    background: white;
+    margin-bottom: 30px;
+}
+
+.div-5 p{
+    margin-top: 20px;
+    padding: 0;
+}
+
+.gugel{
+    display: flex;
+    gap: 10px;
+    margin: 11px;
+    justify-content: center;
+}
+.div-4 button:hover{
+    background-color: #E7D184;
+}
+
+.right {
+    position: relative;
+    z-index: 0;
+}
+
+.sun {
+    position: absolute;
+    width: 900px;
+    top: -200px;
+    right: -200px;
+}
+
+@media screen and (max-width: 1350px) {
+    body{
+        display: flex;
+        gap: 0;
+        flex-direction: column;
+    }
+
+    .editorial{
+        display: none;
+    }
+
+    .asset{
+        margin: 0;
+        padding: 0;
+    }
+
+    .main{
+        position: static;
+        margin: 0;
+        width: auto;
+    }
+
+    .right{
+        margin: 0;
+    }
+}

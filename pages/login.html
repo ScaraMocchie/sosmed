@@ -4,16 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <!-- <link rel="stylesheet" href="../style/login.css"> -->
+    <link rel="stylesheet" href="../style/login.css">
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-firestore.js"></script>
 </head>
+
 <body>
-    <div class="main">
+    <div class="asset">
+      <div class="logo">
+        <img src="../assets/logo.png" alt="">
+        <h2>dynami</h2>
+      </div>
+      <img src="../assets/login.png" class="editorial">
+    </div>
+    <div class="right">
+      <!-- <img src="../assets/6.png" class="sun"> -->
+      <div class="main">
         <div class="div-1">
           <div class="div-2">
-            <h2>log In</h2>
+            <h2>welcome back!</h2>
+            <p>
+              Don't have an account?
+              <span id="signup" onClick="Signup()">Sign Up</span>
+            </p>
           </div>
           <div class="div-3">
             <div class="div-h3">
@@ -45,20 +59,27 @@
           <div class="div-4">
             <button id="login" onClick="Login()">Log In</button>
           </div>
-          <div class="div-4">
-            <button id="google" onClick="google()">Sign Up with google</button>
-          </div>
-          <div class="div-5">
-            <h4 onClick="forgetPassword()">Forgot Password?</h4>
+          <div class="divider">
+            <div class="line"></div>
+            <p>or</p>
+            <div class="line"></div>
           </div>
           <div class="div-6">
-            <p>
-              Don't have an account?
-              <span id="signup" onClick="Signup()">Sign Up</span>
-            </p>
+            <button id="google" onClick="google()">
+              <div class="gugel">
+                <img src="../assets/gugel.png" height="20px">
+                <p>Continue with google</p>
+              </div>
+            </button>
           </div>
+          <div class="div-5">
+            <p onClick="forgetPassword()">Forgot Password? <span>click here!</span></p>
+          </div>
+          
         </div>
       </div>
+    </div>
+    
       <!-- <script src="../js/firebase.js"></script> -->
       <script src="../js/firebase.js"></script>
       <script src="../js/login.js"></script>
