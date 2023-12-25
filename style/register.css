@@ -17,9 +17,9 @@ body{
     background-repeat: no-repeat;
     display: flex;
     justify-content: space-between;
-    gap: 250px;
+    gap: 0px;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 0;
 }
 
 h2{
@@ -57,14 +57,14 @@ h2{
     margin-top: 5%;
     z-index: 2;
     position: relative;
-    width: max-content;
-    right: 30%;
-    top: 30px;
+    width: 100%;
+    right: 50%;
+    top: 6px;
 }
 
 .main p{
     margin: 0;
-    padding-bottom: 40px;
+    padding-bottom: 10px;
     font-weight: 300;
 }
 
@@ -82,7 +82,7 @@ h2{
     font-size: 50px;
     margin: 0;
     line-height: 0.5;
-    padding-top: 40px;
+    padding-top: 30px;
 }
 
 input{
@@ -96,7 +96,7 @@ input{
 
 .div-h3 h4{
     font-weight: 500;
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 14px;
 }
 
@@ -142,7 +142,10 @@ button{
 .div-6 button{
     outline: 2px solid black;
     background: white;
-    margin-bottom: 30px;
+}
+
+.div-6 button:hover{
+    outline: 2px solid rgb(255, 112, 200);
 }
 
 .div-5 p{
@@ -156,6 +159,10 @@ button{
     margin: 11px;
     justify-content: center;
 }
+.div-4 button{
+    margin-top: 14px;
+}
+
 .div-4 button:hover{
     background-color: #E7D184;
 }
@@ -163,18 +170,10 @@ button{
 .right {
     position: relative;
     z-index: 0;
+    width: 30%;
 }
 
-.sun {
-    position: absolute;
-    width: 900px;
-    top: -200px;
-    right: -200px;
-}
 
-.div-6 button:hover{
-    outline: 2px solid rgb(255, 112, 200);
-}
 
 @media screen and (max-width: 1350px) {
     body{
