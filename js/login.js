@@ -6,12 +6,16 @@ const Login = () => {
     const email = document.getElementById("email");
     const password = document.getElementById("password");
     const message = document.getElementById("message");
+    var regex = /^[\w\-\.\+]+\@[a-zA-Z0-9\. \-]+\.[a-zA-z0-9]{2,4}$/;
 
     if (email.value === "") {
         message.innerHTML = "Email required!";
         message.style.color = "red";
     } else if (password.value === "") {
         message.innerHTML = "Password required!";
+        message.style.color = "red";
+    } else if (!email.value.match(regex)) {
+        message.innerHTML = "Please Enter Correct Email Address";
         message.style.color = "red";
     } else{
         const userData = {
@@ -26,7 +30,11 @@ const Login = () => {
         })
         .catch((error) => {
           // Handle login errors
-          document.getElementById('error').textContent = error.message;
+          message.innerHTML = "Account doesn't exist";
+          message.style.color = "red";
+          // document.getElementById('error').textContent = error.message;
+          
+
         });
  
     }
