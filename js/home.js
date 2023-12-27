@@ -1,3 +1,56 @@
+let userprofileimg = document.getElementById("userprofileimg");
+let userprofileimgsml = document.getElementById("userprofileimgsml");
+let userprofileimglrg = document.getElementById("userprofileimglrg");
+
+let name2 = document.getElementById("name");
+let username = document.getElementById("username");
+
+let alluser = [];
+let fileType = "";
+
+firebase.auth().onAuthStateChanged((user) => {
+  if (user) {
+    uid = user.uid;
+      // console.log("emailVerified true");
+     
+      
+
+      firebase
+        .firestore()
+        .collection("Users/")
+        .onSnapshot((result) => {
+          result.forEach((users) => {
+            alluser.push(users.data());
+            Filetype = users.data().filetype;
+            if (users.data().uid === user.uid) {
+              name2.innerHTML = users.data().FirstName + " " + users.data().LastName
+              username.innerHTML = users.data().Username
+              if (
+                users.data().ProfilePicture !== "" ||
+                users.data().CoverPicture !== ""
+              ) {
+                userprofileimg.setAttribute(
+                  "src",
+                  users.data().ProfilePicture
+                );
+                userprofileimgsml.setAttribute(
+                  "src",
+                  users.data().ProfilePicture
+                );
+                userprofileimglrg.setAttribute(
+                  "src",
+                  users.data().ProfilePicture
+                );
+            
+              }
+            }
+          });
+        });
+  } else {
+    window.location.assign("./login.html");
+  }
+});
+
 const logout =  () => {
     firebase.auth().signOut().then(function() {
       // Sign-out successful, redirect to login page
@@ -6,7 +59,9 @@ const logout =  () => {
       console.error('Logout Error:', error);
     });
   }
-
+const profile= ()=>{
+  window.location.href = "../pages/profile.html"; 
+}
   function adjustInputHeight(textarea) {
     textarea.style.height = "auto";
     textarea.style.height = (textarea.scrollHeight) + "px";
@@ -41,3 +96,5 @@ document.addEventListener("DOMContentLoaded", function () {
       imageContentInput.classList.remove("active");
   });
 });
+
+

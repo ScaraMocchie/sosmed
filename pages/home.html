@@ -31,7 +31,7 @@
         </div>
         <div class="userlogout">
             <div class="userphoto">
-                <img src="../assets/user-default.jpg", width="30px">
+                <img src="../assets/user-default.jpg" id="userprofileimgsml" width="30px" height="30px" style="object-fit: cover">
             </div>
             <div class="div-4">
                 <button id="logout" onClick="logout()">Log Out</button>
@@ -46,8 +46,8 @@
         <div class="divider-1">
             <div class="inputpost">
                 <div class="postform">
-                    <div class="userphoto satu">
-                        <img src="../assets/user-default.jpg", width="55px">
+                    <div class="userphoto satu" >
+                        <img src="../assets/user-default.jpg" width="55px" height="55px" id="userprofileimg" style="object-fit: cover">
                     </div>
                     <!-- Modify the existing contentinput div -->
                     <div class="contentinput" id="contentInputContainer">
@@ -76,11 +76,11 @@
         <div class="divider-2">
             <div class="user-profile">
                 <div class="userphoto">
-                    <img src="../assets/user-default.jpg", width="80px">
+                    <img src="../assets/user-default.jpg" id = "userprofileimglrg" width="80px" height="80px" style="object-fit: cover">
                 </div>
                 <div class="namauser">
-                    <h3>Hakuna Matata</h3>
-                    <p>@hakuna_matata</p>
+                    <h3 id="name">Hakuna Matata</h3>
+                    <p id="username">@hakuna_matata</p>
                 </div>
                 <div class="userinfo">
                     <div class="posts" style="text-align: center; display: flex; flex-direction: column;">
@@ -97,7 +97,7 @@
                     </div>
                 </div>
                 <div class="see">
-                    <button>See Profile</button>
+                    <button onClick="profile()">See Profile</button>
                 </div>
             </div>
             <div class="friend-recommend">
@@ -107,9 +107,9 @@
         
         
     </div>
-    
-    <script src="../js/home.js"></script>
     <script src="../js/firebase.js"></script>
+    <script src="../js/home.js"></script>
+    
     
 </body>
 </html>
