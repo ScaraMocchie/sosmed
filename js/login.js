@@ -2,6 +2,31 @@ var Signup = () => {
     window.location.assign("../pages/register.html");
 };
 
+const getRandomNumber = (min, max) => {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+const resetCaptcha = () => {
+  const capt1 = getRandomNumber(0, 10);
+  const capt2 = getRandomNumber(0, 10);
+
+  document.getElementById("captcha1").textContent = capt1;
+  document.getElementById("captcha2").textContent = capt2;
+  captchaInput.value = "";
+};
+
+const captchaInput = document.getElementById("captcha-input");
+const captcha1 = document.getElementById("captcha1");
+const captcha2 = document.getElementById("captcha2");
+
+const capt1 = getRandomNumber(0, 10);
+const capt2 = getRandomNumber(0, 10);
+const captchaSum = capt1 + capt2;
+
+captcha1.textContent = capt1;
+captcha2.textContent = capt2;
+
+
 const Login = () => {
     const email = document.getElementById("email");
     const password = document.getElementById("password");
@@ -17,28 +42,26 @@ const Login = () => {
     } else if (!email.value.match(regex)) {
         message.innerHTML = "Please Enter Correct Email Address";
         message.style.color = "red";
-    } else{
-        const userData = {
-            email: email.value,
-            password: password.value,
-        };
-        firebase.auth().signInWithEmailAndPassword(userData.email, userData.password)
+    } else {
+      const userData = {
+        email: email.value,
+        password: password.value,
+      };
+      firebase
+        .auth()
+        .signInWithEmailAndPassword(userData.email, userData.password)
         .then((userCredential) => {
           // Successful login, redirect to home page or do any necessary action
-          console.log('User logged in:', userCredential.user);
+          console.log("User logged in:", userCredential.user);
           window.location.href = "../pages/home.html"; // Replace with your home page URL
         })
         .catch((error) => {
           // Handle login errors
-          message.innerHTML = "Account doesn't exist";
-          message.style.color = "red";
-          // document.getElementById('error').textContent = error.message;
-          
-
+          document.getElementById("error").textContent = error.message;
         });
- 
     }
-}
+  }
+
 
 const google = async () => {
     try {
