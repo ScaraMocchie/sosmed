@@ -49,3 +49,38 @@ firebase.auth().onAuthStateChanged(function(user) {
     );
   };
   var d = new Date().toLocaleDateString();
+
+
+  function createpost() {
+    if (postvalue.value !== "" || url !== "") {
+      firebase
+        .firestore()
+        .collection("posts")
+        .add({
+          postvalue: postvalue.value,
+          uid: currentuser.uid,
+          url: url,
+          filetype: fileType,
+          like: [],
+          dislikes: [],
+          comments: [],
+          Date: `${d}`
+        })
+        .then((res) => {
+          firebase
+            .firestore()
+            .collection("posts/")
+            .doc(res.id)
+            .update({
+              id: res.id
+            })
+            .then(() => {
+              done.style.display = "none"
+              document.getElementById("uploadedmssage").style.display = "block";
+              setTimeout(() => {
+                location.reload();
+              }, 2000);
+            });
+        });
+    }
+  }
