@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=Lexend+Deca:wght@200;300;400;500;600;700;800&display=swap');
+
+*{
+    font-family: 'Borel', cursive;
+    font-family: 'Lexend Deca', sans-serif;
+    color: #575757;
+    margin: 0;
+    padding: 0;
+}
+
+.logo img{
+    width: 34px;
+}
+
+.logo h2{
+    padding-top: 20px;
+    font-family: 'Borel';
+    font-size: 20px;
+}
+
+.logo{
+    display: flex;
+    font-size: 25px;
+    align-items: center;
+    gap: 8px;
+    margin: 6px 30px;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+}
+
+body{
+    background-color: #F9E4EC;
+}
+
+.user-profile{
+    background-color: #fcf9f6;
+    padding: 30px;
+    margin: 10px;
+    border-radius: 18px;
+}
+
+.inputpost{
+    background-color: #fcf9f6;
+    padding: 30px;
+    margin: 10px;
+    border-radius: 18px;
+}
+
+
+.friend-recommend{
+    background-color: #fcf9f6;
+    padding: 30px;
+    margin: 10px;
+    border-radius: 18px;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.divider-1{
+    width: 60%;
+}
+
+.divider-2{
+    width: 25%;
+}
+
+.userphoto.satu{
+    width: 12%;
+}
+
+.userphoto img{
+    border-radius: 50%;
+}
+
+.postform{
+    display: flex;
+}
+
+.contentinput{
+    width: 85%;
+    text-align: center;
+    display: block;
+    justify-content: center;
+}
+
+
+.userinfo{
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+}
+
+.user-profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+}
+
+.jmlh{
+    font-size: 24px;
+}
+
+p{
+    font-size: 12px;
+}
+
+.see button{
+    padding: 6px 13px;
+    background-color: #E7D184;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+.namauser{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.contentinput textarea{
+    padding: 6px 10px;
+    border-radius: 20px;
+    border: none;
+    resize: none;
+    width: 100%;
+    background-color: #fdbfb09f;
+    outline: none;
+}
+
+.userlogout{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.searchbox{
+    background-color: #c2c3e174;
+    padding: 8px;
+    width: 30%;
+    border-radius: 20px;
+}
+
+.searchbox input{
+    width: 95%;
+    border: none;
+    background-color: transparent;
+    padding: 4px;
+    outline: none;
+}
+
+.searchbox button{
+    background: none;
+    border: none;
+    font-size: 16px;
+}
+
+.fa{
+    color: #9c9db9;
+}
+
+#imageInput {
+    margin-top: 10px;
+    position: absolute;
+    width: 88px;
+    height: 22px;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.fa.fa-picture-o{
+    color: #575757;
+    font-size: 40px;
+}
+
+.see.not button{
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.imagecontentinput {
+    display: none; /* Initially hide the imagecontentinput */
+}
+
+.imagecontentinput.active {
+    display: block; /* Display when active class is applied */
+}
+
+#selectedImageContainer img {
+    max-width: 100%;
+    max-height: 112px;
+    margin-top: 10px;
+    margin-left: 10px;
+    display: flex;
+    border-radius: 18px;
+}
+
+.postbutton{
+    background-color: #E7D184;
+    padding: 13px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    float: right;
+}
+
