@@ -68,20 +68,20 @@ const profile= ()=>{
 }
 
 function insertImage() {
-    var imageInput = document.getElementById("imageInput");
-    var postInput = document.getElementById("postInput");
-    var selectedImageContainer = document.getElementById("selectedImageContainer");
+  var imageInput = document.getElementById("imageInput");
+  var postInput = document.getElementById("postInput");
+  var selectedImageContainer = document.getElementById("selectedImageContainer");
 
-    var file = imageInput.files[0];
-    if (file) {
-        var reader = new FileReader();
-        reader.onload = function (e) {
-            var imageTag = '<img src="' + e.target.result + '" alt="uploaded-image">';
-            selectedImageContainer.innerHTML = imageTag;
-        };
-        reader.readAsDataURL(file);
-        imageInput.value = '';
-    }
+  var file = imageInput.files[0];
+  if (file) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+          var imageTag = '<img src="' + e.target.result + '" alt="uploaded-image">';
+          selectedImageContainer.innerHTML = imageTag;
+      };
+      reader.readAsDataURL(file);
+      imageInput.value = '';
+  }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -91,10 +91,5 @@ document.addEventListener("DOMContentLoaded", function () {
   postInput.addEventListener("click", function () {
       imageContentInput.classList.add("active");
   });
-
-  postInput.addEventListener("blur", function () {
-      imageContentInput.classList.remove("active");
-  });
 });
-
 

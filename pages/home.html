@@ -26,16 +26,28 @@
             <button type="find"><i class="fa fa-search"></i></button>
         </form>
         <div class="menu">
-            <a href="#">HOME</i></a>
-            <a href="#">FRIENDS</i></a>
+            <a href="#">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <p style="line-height: 1.9;"">Profile</p>
+            </a>
+            <a href="#">
+                <i class="fa fa-home" aria-hidden="true"></i>
+                <p class="homemenu">Home</p>
+            </a>
+            <a href="#">
+                <i class="fa fa-users" aria-hidden="true"></i>
+                <p style="line-height: 2;">Friends</p>
+            </a>
+            <a href="#">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                <p style="line-height: 2;">Add Post</p>
+            </a>
         </div>
         <div class="userlogout">
-            <div class="userphoto">
-                <img src="../assets/user-default.jpg" id="userprofileimgsml" width="30px" height="30px" style="object-fit: cover">
-            </div>
-            <div class="div-4">
-                <button id="logout" onClick="logout()">Log Out</button>
-            </div>
+            <button id="logout" onClick="logout()">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                <p>Log Out</p>
+            </button>
         </div>
         
     </nav>
@@ -65,22 +77,25 @@
                                 <div id="selectedImageContainer"></div>
                             </div>
 
-                            <button class="postbutton"><img src="../assets/paperplane.png" width="32px"></button>
                         </form>
                     </div>
-
                 </div>
+                <button class="postbutton"><img src="../assets/paperplane.png" width="38px"></button>
             </div>
         </div>
 
         <div class="divider-2">
             <div class="user-profile">
-                <div class="userphoto">
-                    <img src="../assets/user-default.jpg" id = "userprofileimglrg" width="80px" height="80px" style="object-fit: cover">
+                <div class="header" style="background-image: url('../assets/pxfuel.jpg'); background-size: cover;">
                 </div>
+                <div class="userphoto">
+                    <img src="../assets/user-default.jpg" id = "userprofileimglrg" width="80px" height="80px">
+                </div>
+                
                 <div class="namauser">
                     <h3 id="name">Hakuna Matata</h3>
-                    <p id="username">@hakuna_matata</p>
+                    <p>@<span id="username">hakunamatata</span>
+
                 </div>
                 <div class="userinfo">
                     <div class="posts" style="text-align: center; display: flex; flex-direction: column;">

@@ -9,13 +9,13 @@
 }
 
 .logo img{
-    width: 34px;
+    width: 36px;
 }
 
 .logo h2{
     padding-top: 20px;
     font-family: 'Borel';
-    font-size: 20px;
+    font-size: 24px;
 }
 
 .logo{
@@ -30,10 +30,16 @@ nav{
     align-items: center;
     justify-content: space-between;
     padding: 0 50px;
+    position: fixed;
+    width: 95%;
+    margin: 0;
+    background-color: #fbeef3;
+    z-index: 100;
 }
 
 body{
     background-color: #F9E4EC;
+    margin: 0;
 }
 
 .user-profile{
@@ -50,6 +56,38 @@ body{
     border-radius: 18px;
 }
 
+.menu{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.menu a{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    text-decoration: none;
+    text-align: center;
+}
+
+.menu p{
+    font-size: 15px;
+    color: #9c9db9;
+}
+
+.homemenu{
+    line-height: 1.4;
+}
+
+.fa.fa-home{
+    font-size: 26px;
+}
+
+.menu i{
+    font-size: 22px;
+}
+
 
 .friend-recommend{
     background-color: #fcf9f6;
@@ -61,11 +99,26 @@ body{
 .content{
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    padding: 90px;
 }
 
 .divider-1{
     width: 60%;
+}
+
+.userlogout button{
+    display: flex;
+    background-color: transparent;
+    font-size: 24px;
+    border: none;
+    gap: 8px;
+    align-items: center;
+}
+
+.userlogout p{
+    font-size: 18px;
+    color: #9c9db9;
+    font-weight: 500;
 }
 
 .divider-2{
@@ -74,15 +127,36 @@ body{
 
 .userphoto.satu{
     width: 12%;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    margin-top: 8px;
 }
 
 .userphoto img{
     border-radius: 50%;
+    border: 5px solid #fcf9f6;
+}
+
+.userphoto{
+    position: absolute;
+    margin-top: 80px;
 }
 
 .postform{
     display: flex;
 }
+
+.header{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 130px;
+    background-repeat: none;
+    border-radius: 15px;
+}
+
 
 .contentinput{
     width: 85%;
@@ -94,8 +168,8 @@ body{
 
 .userinfo{
     display: flex;
-    justify-content: space-between;
-    gap: 14px;
+    justify-content: center;
+    gap: 40px;
 }
 
 .user-profile{
@@ -122,6 +196,7 @@ p{
 }
 
 .namauser{
+    margin-top: 24px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -129,13 +204,17 @@ p{
 }
 
 .contentinput textarea{
-    padding: 6px 10px;
+    padding: 16px 0 0 16px;
     border-radius: 20px;
     border: none;
     resize: none;
     width: 100%;
     background-color: #fdbfb09f;
     outline: none;
+}
+
+.contentinput{
+    margin-top: 10px;
 }
 
 .userlogout{
@@ -194,11 +273,12 @@ p{
 }
 
 .imagecontentinput {
-    display: none; /* Initially hide the imagecontentinput */
+    display: none;
 }
 
 .imagecontentinput.active {
-    display: block; /* Display when active class is applied */
+    display: flex;
+    flex-direction: row;
 }
 
 #selectedImageContainer img {
