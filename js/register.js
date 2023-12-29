@@ -57,6 +57,8 @@ const SignUp = () => {
             firebase.firestore().collection("Users").doc(userCredential.user.uid).set(userdata).then((res)=>{
                 window.location.href = "../pages/login.html"; 
             })
+
+        
         })
         .catch((error) => {
             message.innerHTML = error.message;
