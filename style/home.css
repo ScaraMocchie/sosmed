@@ -227,6 +227,7 @@ p{
     background-color: #c2c3e174;
     padding: 8px;
     width: 30%;
+    display: flex;
     border-radius: 20px;
 }
 
