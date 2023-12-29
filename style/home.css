@@ -228,6 +228,7 @@ p{
     padding: 8px;
     width: 30%;
     border-radius: 20px;
+    display:flex;
 }
 
 .searchbox input{
@@ -298,4 +299,3 @@ p{
     cursor: pointer;
     float: right;
 }
-
