@@ -1,6 +1,7 @@
 let userprofileimg = document.getElementById("userprofileimg");
 let userprofileimgsml = document.getElementById("userprofileimgsml");
 let userprofileimglrg = document.getElementById("userprofileimglrg");
+let background =  document.getElementById("background");
 
 let name2 = document.getElementById("name");
 let username = document.getElementById("username");
@@ -12,9 +13,6 @@ firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     uid = user.uid;
       // console.log("emailVerified true");
-     
-      
-
       firebase
         .firestore()
         .collection("Users/")
@@ -31,16 +29,13 @@ firebase.auth().onAuthStateChanged((user) => {
               ) {
                 userprofileimg.setAttribute(
                   "src",
-                  users.data().ProfilePicture
-                );
-                userprofileimgsml.setAttribute(
-                  "src",
-                  users.data().ProfilePicture
+                  users.data().ProfilePicture || "../assets/user-default.jpg"
                 );
                 userprofileimglrg.setAttribute(
                   "src",
-                  users.data().ProfilePicture
+                  users.data().ProfilePicture || "../assets/user-default.jpg"
                 );
+                background.style.backgroundImage=  `url('${users.data().CoverPicture || "../assets/pxfuel.jpg"}')`;
             
               }
             }
@@ -68,20 +63,20 @@ const profile= ()=>{
 }
 
 function insertImage() {
-  var imageInput = document.getElementById("imageInput");
-  var postInput = document.getElementById("postInput");
-  var selectedImageContainer = document.getElementById("selectedImageContainer");
+    var imageInput = document.getElementById("imageInput");
+    var postInput = document.getElementById("postInput");
+    var selectedImageContainer = document.getElementById("selectedImageContainer");
 
-  var file = imageInput.files[0];
-  if (file) {
-      var reader = new FileReader();
-      reader.onload = function (e) {
-          var imageTag = '<img src="' + e.target.result + '" alt="uploaded-image">';
-          selectedImageContainer.innerHTML = imageTag;
-      };
-      reader.readAsDataURL(file);
-      imageInput.value = '';
-  }
+    var file = imageInput.files[0];
+    if (file) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            var imageTag = '<img src="' + e.target.result + '" alt="uploaded-image">';
+            selectedImageContainer.innerHTML = imageTag;
+        };
+        reader.readAsDataURL(file);
+        imageInput.value = '';
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -91,5 +86,10 @@ document.addEventListener("DOMContentLoaded", function () {
   postInput.addEventListener("click", function () {
       imageContentInput.classList.add("active");
   });
+
+  postInput.addEventListener("blur", function () {
+      imageContentInput.classList.remove("active");
+  });
 });
+
 
