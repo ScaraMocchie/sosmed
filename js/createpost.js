@@ -78,9 +78,11 @@ firebase.auth().onAuthStateChanged(function(user) {
               done.style.display = "none"
               document.getElementById("uploadedmssage").style.display = "block";
               setTimeout(() => {
-                location.reload();
+                window.location.assign("./home.html");
               }, 2000);
             });
         });
+       
     }
+
   }

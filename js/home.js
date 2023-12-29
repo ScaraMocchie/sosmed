@@ -93,3 +93,98 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+var loading = document.getElementById("loaderdiv");
+var showposts = document.getElementById("showposts");
+firebase
+  .firestore()
+  .collection("posts")
+  .onSnapshot((onSnapshot) => {
+    loading.style.display = "none";
+    let allposts = [];
+    if (onSnapshot.size === 0) {
+      let nodata = document.getElementById("h1");
+      nodata.style.display = "block";
+    } else {
+      onSnapshot.forEach((postres) => {
+        allposts.push(postres.data());
+      });
+      showposts.style.display = "block";
+      showposts.innerHTML = "";
+      for (let i = 0; i < allposts.length; i++) {
+        let likearry = allposts[i].like;
+        let dislikearry = allposts[i].dislikes;
+        let commentarry = allposts[i].comments;
+        let postmain = document.createElement("div");
+        showposts.appendChild(postmain);
+        postmain.setAttribute("class", "postmain");
+        //post header
+        let postheader = document.createElement("div");
+        postmain.appendChild(postheader);
+        postheader.setAttribute("class", "postheader");
+        // user data
+        firebase
+          .firestore()
+          .collection("Users")
+          .doc(allposts[i].uid)
+          .get()
+          .then((res) => {
+            // console.log(res);
+
+            let userprodiv = document.createElement("div");
+
+            let userprofileimage = document.createElement("img");
+
+            postheader.appendChild(userprodiv);
+            userprodiv.setAttribute("class", "userprodiv");
+            userprodiv.appendChild(userprofileimage);
+            userprofileimage.setAttribute(
+              "src",
+              res.data().ProfilePicture === ""
+                ? "../assets/user-default.jpg"
+                : res.data().ProfilePicture
+            );
+            userprofileimage.setAttribute("class", "profileimage");
+            let userdiv = document.createElement("div");
+            userprodiv.appendChild(userdiv);
+            let = fullname = document.createElement("h6");
+            let = username = document.createElement("h6");
+            userdiv.appendChild(fullname);
+            userprodiv.appendChild(username);
+            username.setAttribute("class", "usernamee")
+            username.innerHTML = `@${res.data().Username}`;
+            fullname.innerHTML = `${res.data().FirstName} ${res.data().LastName
+              }`;
+
+            let date = document.createElement("h6");
+            userdiv.appendChild(date);
+            date.innerHTML = `${allposts[i].Date} `;
+            let postdetail = document.createElement("p");
+            postdetail.setAttribute("class", "detailpost")
+            postheader.appendChild(postdetail);
+
+            postdetail.innerHTML = allposts[i].postvalue;
+            if (allposts[i].url !== "") {
+              if (
+                allposts[i].filetype === "image/png" ||
+                allposts[i].filetype === "image/jpg" ||
+                allposts[i].filetype === "image/jpeg"
+              ) {
+                // images
+                let postimage = document.createElement("img");
+                postmain.appendChild(postimage);
+                postimage.setAttribute("src", "");
+                postimage.setAttribute("src", allposts[i].url);
+                postimage.setAttribute("class", "postimage col-12");
+              } else {
+                // videos
+                let postvideo = document.createElement("video");
+                postmain.appendChild(postvideo);
+                postvideo.setAttribute("controls", "true");
+                postvideo.setAttribute("class", "postVideo");
+                let source = document.createElement("source");
+                postvideo.appendChild(source);
+                source.setAttribute("src", allposts[i].url);
+                source.setAttribute("type", "video/mp4");
+              }
+            }
+          })}}})
