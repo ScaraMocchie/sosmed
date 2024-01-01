@@ -61,9 +61,9 @@ const logout =  () => {
       console.error('Logout Error:', error);
     });
   }
-const profile= ()=>{
-  window.location.href = "../pages/userprofile.html"; 
-}
+// const profile= ()=>{
+//   window.location.href = "../pages/userprofile.html"; 
+// }
   function adjustInputHeight(textarea) {
     textarea.style.height = "auto";
     textarea.style.height = (textarea.scrollHeight) + "px";
