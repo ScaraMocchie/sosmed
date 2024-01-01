@@ -253,4 +253,108 @@ firebase
                 source.setAttribute("type", "video/mp4");
               }
             }
+            //FOOTER
+            let footerdiv = document.createElement("div");
+            postmain.appendChild(footerdiv);
+            footerdiv.setAttribute("class", "footerdiv");
+            //like
+            var likebutton = document.createElement("button");
+            footerdiv.appendChild(likebutton);
+            likebutton.setAttribute("class", "likebutton");
+            var likeicon = document.createElement("i");
+            likebutton.appendChild(likeicon);
+            likeicon.setAttribute("class", "fa-solid fa-thumbs-up");
+            var liketitle = document.createElement("p");
+            likebutton.appendChild(liketitle);
+            liketitle.setAttribute("class", "impressionstitle");
+            liketitle.innerHTML = `Like (${likearry.length})`;
+            for (let likeIndex = 0; likeIndex < likearry.length; likeIndex++) {
+              if (likearry[likeIndex] === uid) {
+                likeicon.style.color = "green";
+                liketitle.style.color = "green";
+              }
+            }
+            //like function
+            likebutton.addEventListener("click", () => {
+              let like = false;
+              for (
+                let likeIndex = 0;
+                likeIndex < likearry.length;
+                likeIndex++
+              ) {
+                if (likearry[likeIndex] === uid) {
+                  like = true;
+                  likearry.splice(likeIndex, 1);
+                }
+              }
+              if (!like) {
+                likearry.push(uid);
+              }
+              firebase
+                .firestore()
+                .collection("posts/")
+                .doc(allposts[i].id)
+                .update({
+                  like: likearry,
+                });
+            });
+
+            //DISLIKE
+            var dislikebutton = document.createElement("button");
+            footerdiv.appendChild(dislikebutton);
+            dislikebutton.setAttribute("class", "dislikebutton");
+
+            var dislikeicon = document.createElement("i");
+            dislikebutton.appendChild(dislikeicon);
+            dislikeicon.setAttribute("class", "fa-solid fa-thumbs-down");
+
+            var disliketitle = document.createElement("p");
+            dislikebutton.appendChild(disliketitle);
+            disliketitle.setAttribute("class", "impressionstitle");
+            disliketitle.innerHTML = `Dislike (${dislikearry.length})`;
+            for (
+              let dislikeindex = 0;
+              dislikeindex < dislikearry.length;
+              dislikeindex++
+            ) {
+              if (dislikearry[dislikeindex] === uid) {
+                dislikeicon.style.color = "green";
+                disliketitle.style.color = "green";
+              }
+            }
+            dislikebutton.addEventListener("click", () => {
+              let dislike = false;
+              for (
+                let dislikeindex = 0;
+                dislikeindex < dislikearry.length;
+                dislikeindex++
+              ) {
+                if (dislikearry[dislikeindex] === uid) {
+                  dislike = true;
+                  dislikearry.splice(dislikeindex, 1);
+                }
+              }
+              if (!dislike) {
+                dislikearry.push(uid);
+              }
+              firebase
+                .firestore()
+                .collection("posts/")
+                .doc(allposts[i].id)
+                .update({
+                  dislikes: dislikearry,
+                });
+            });
+
+            let commentbtn = document.createElement("button");
+            footerdiv.appendChild(commentbtn);
+
+            var commenticon = document.createElement("i");
+            commentbtn.appendChild(commenticon);
+            commenticon.setAttribute("class", "fa-solid fa-message");
+
+            var commentmessage = document.createElement("p");
+            commentbtn.appendChild(commentmessage);
+            commentmessage.setAttribute("class", "impressionstitle");
+            commentmessage.innerHTML = `Comment (${commentarry.length})`;
           })}}})
