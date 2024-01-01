@@ -17,7 +17,7 @@
 <body>
     <nav>
         <div class="logo">
-            <img src="../assets/logo.png", width="30px">
+            <img src="../assets/logo.png" width="30px">
             <h2>dynami</h2>
         </div>
         <form class="searchbox">
@@ -27,7 +27,7 @@
         <div class="menu">
             <a href="#">
                 <i class="fa fa-user" aria-hidden="true"></i>
-                <p style="line-height: 1.9;"">Profile</p>
+                <p style="line-height: 1.9;">Profile</p>
             </a>
             <a href="#">
                 <i class="fa fa-home" aria-hidden="true"></i>
@@ -48,45 +48,62 @@
                 <p>Log Out</p>
             </button>
         </div>
-        
     </nav>
 
-    <div class="background">
-        <div class="header" style="background-image: url('../assets/pxfuel.jpg'); background-size: cover; background-position: center;">
+    <div id="createpostdivmain" class="col-12">
+        <div id="usercoverpicturediv" style="background: url('../assets/pxfuel.jpg'); background-position: center; background-repeat: no-repeat; background-size: cover;">
+            <label for="inputforusercoverimg" id="choosecoverimg" class="uploadbuttons">
+                <img src="https://t4.ftcdn.net/jpg/02/17/88/73/360_F_217887350_mDfLv2ootQNeffWXT57VQr8OX7IvZKvB.jpg" id="m" width="40px">
+            </label>
+            <input type="file" id="inputforusercoverimg" style="visibility: hidden" onchange="changecoverpicture(event)">
         </div>
-        <div class="content">
-            <div class="userprofile" style="background-image: url('../assets/user-default.jpg'); background-position: center;"></div>
-            <div class="switch">
-                <button style="border-radius: 20px 0 0 20px;" id="profile">Profile</button>
-                <button style="border-radius: 0 20px 20px 0;" id="posts">Posts</button>
-            </div>
-            <div class="container">
-                <div class="about">
-                    <h3>Hakuna Matata</h3>
-                    <h4>@hakunamatata</h4>
-                    <div class="bio">
-                        <p>This is my bio ✨</p>
-                    </div>
+
+        <div id="userprofilepicturediv" style="background: url(../assets/user-default.jpg); background-position: center; background-size: cover;">
+            <label for="inputforuserprofileimg" id="chooseprofileimg" class="uploadbuttons">
+                <img src="https://t4.ftcdn.net/jpg/02/17/88/73/360_F_217887350_mDfLv2ootQNeffWXT57VQr8OX7IvZKvB.jpg" id="m" width="30px">
+            </label>
+            <input type="file" id="inputforuserprofileimg" style="visibility: hidden" onchange="changeprofilepicture(event)">
+        </div>
+
+        <div class="usercontent">
+            <div class="username">
+                <h3 id="fullname">Hakuna Matata</h3>
+                <h4>@<span>hakunamatata</span></h4>
+                <p>this is my bio ✨</p>
+                <div class="edituser">
+                    <label for="firstname" class="labels">First Name:</label>
+                    <input type="text" id="firstname" class="userdatainputs">
+                    <label for="lastname" class="labels">Last Name:</label>
+                    <input type="text" id="lastname" class="userdatainputs">
+                    <label for="emailaddress" class="labels">Email Address:</label>
+                    <input type="email" id="emailaddress" class="userdatainputs">
+                    <label for="userdescription" class="labels">Bio:</label>
+                    <textarea id="userdescription" rows="5" placeholder="your bio"></textarea>
                 </div>
+                <p id="message"></p>
+                <div class="col-12" style="display: flex; align-items: center; justify-content: flex-end; margin-top: 15px;">
+                    <button id="updatedatabutton" style="background-color: #E7D184; font-weight: 400; color: #575757;" onclick="update()">Update</button>
+                </div>
+            </div>
+
+            <div class="myposts">
                 <div class="userinfo">
                     <div class="posts" style="text-align: center; display: flex; flex-direction: column;">
-                        <h3 class="jmlh post" id="jmlhpost">120</h3>
+                        <p class="jmlh post" id="jmlhpost">120</p>
                         <p>Posts</p>
                     </div>
                     <div class="followers" style="text-align: center; display: flex; flex-direction: column;">
-                        <h3 class="jmlh follower" id="jmlhfollower">120</h3>
+                        <p class="jmlh follower" id="jmlhfollower">120</p>
                         <p>Followers</p>
                     </div>
                     <div class="followings" style="text-align: center; display: flex; flex-direction: column;">
-                        <h3 class="jmlh following" id="jmlhfollowing">120</>
+                        <p class="jmlh following" id="jmlhfollowing">120</p>
                         <p>Followings</p>
                     </div>
                 </div>
+                <h3>Posts</h3>
             </div>
-            
-            
         </div>
-        
     </div>
 </body>
 </html>
