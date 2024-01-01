@@ -175,6 +175,7 @@ firebase
         let commentarry = allposts[i].comments;
         let postmain = document.createElement("div");
         showposts.appendChild(postmain);
+        // postmain.style.height= "500px";
         postmain.setAttribute("class", "postmain");
         //post header
         let postheader = document.createElement("div");

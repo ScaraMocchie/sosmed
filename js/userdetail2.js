@@ -1,5 +1,5 @@
 let userprofileimg = document.getElementById("userprofileimg");
-let usercoverimg = document.getElementById("usercoverimg");
+// let usercoverimg = document.getElementById("usercoverimg");
 let progressbar1 = document.getElementById("progressbar");
 let progressbardiv = document.getElementById("progressbardiv");
 let firstName = document.getElementById("firstname");
@@ -7,14 +7,18 @@ let lastname = document.getElementById("lastname");
 let email = document.getElementById("emailaddress");
 let description = document.getElementById("userdescription");
 let message = document.getElementById("message");
-var postsshowbutton = document.getElementById("postsbutton");
+// var postsshowbutton = document.getElementById("postsbutton");
 var currentuserpost = document.getElementById("showposts");
 var userdata = document.getElementById("editabledatadiv");
-var showuserprofilebutton = document.getElementById("userprofilebutton");
+// var showuserprofilebutton = document.getElementById("userprofilebutton");
 let textareaupdate = document.getElementById("textareaupdate");
 let fileType = "";
 
-let background =  document.getElementById("background");
+let bio = document.getElementById("bio");
+let uname = document.getElementById("uname");
+
+let background =  document.getElementById("usercoverpicturediv");
+let userprofilepicturediv = document.getElementById("userprofilepicturediv");
 let uid;
 let updateurl;
 let alluser = [];
@@ -29,16 +33,16 @@ function changecoverpicture(event) {
   uploadTask.on(
     "state_changed",
     (snapshot) => {
-      var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-      progressbardiv.style.visibility = "visible";
-      var uploadpercentage = Math.round(progress);
-      progressbar.style.width = `${uploadpercentage}%`;
-      progressbar.innerHTML = `${uploadpercentage}%`;
+    //   var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    //   progressbardiv.style.visibility = "visible";
+    //   var uploadpercentage = Math.round(progress);
+    //   progressbar.style.width = `${uploadpercentage}%`;
+    //   progressbar.innerHTML = `${uploadpercentage}%`;
     },
     (error) => {},
     () => {
       uploadTask.snapshot.ref.getDownloadURL().then((coverpicture) => {
-        progressbardiv.style.visibility = "hidden";
+        // progressbardiv.style.visibility = "hidden";
         firebase
           .firestore()
           .collection("Users/")
@@ -59,16 +63,16 @@ function changeprofilepicture(event) {
   uploadTask.on(
     "state_changed",
     (snapshot) => {
-      var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-      progressbardiv.style.visibility = "visible";
-      var uploadpercentage = Math.round(progress);
-      progressbar1.style.width = `${uploadpercentage}%`;
-      progressbar1.innerHTML = `${uploadpercentage}%`;
+    //   var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    //   progressbardiv.style.visibility = "visible";
+    //   var uploadpercentage = Math.round(progress);
+    //   progressbar1.style.width = `${uploadpercentage}%`;
+    //   progressbar1.innerHTML = `${uploadpercentage}%`;
     },
     (error) => {},
     () => {
       uploadTask.snapshot.ref.getDownloadURL().then((profileimage) => {
-        progressbardiv.style.visibility = "hidden";
+        // progressbardiv.style.visibility = "hidden";
         firebase
           .firestore()
           .collection("Users/")
@@ -92,18 +96,23 @@ firebase.auth().onAuthStateChanged((user) => {
             alluser.push(users.data());
             fileType = users.data().filetype;
             if (users.data().uid === user.uid) {
-              createpostinput.setAttribute(
-                "placeholder",
-                `What's on your mind ,${users.data().FirstName}?`
-              );
+            //   createpostinput.setAttribute(
+            //     "placeholder",
+            //     `What's on your mind ,${users.data().FirstName}?`
+            //   );
               firstName.value = users.data().FirstName;
               lastname.value = users.data().LastName;
               email.value = users.data().Email;
               email.disabled = true;
               description.value = users.data().Description;
+              bio.innerHTML = users.data().Description;
+              uname.innerHTML = users.data().Username;
+              fullname.innerHTML = users.data().FirstName +' '+users.data().LastName;
 
               if (users.data().ProfilePicture !== "") {
-                userimg.setAttribute("src", users.data().ProfilePicture);
+                // userimg.setAttribute("src", users.data().ProfilePicture);
+                userprofilepicturediv.style.backgroundImage=  `url('${users.data().ProfilePicture || "../assets/user-default.jpg"}')`;
+                
               }
             }
           });
@@ -121,15 +130,11 @@ firebase.auth().onAuthStateChanged((user) => {
                 users.data().ProfilePicture !== "" ||
                 users.data().CoverPicture !== ""
               ) {
-                userprofileimg.setAttribute(
-                  "src",
-                  users.data().ProfilePicture || "https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659651__340.png"
-                );
-                usercoverimg.setAttribute(
-                  "src",
-                  users.data().CoverPicture ||
-                    "https://media.istockphoto.com/id/490726872/photo/man-at-the-sunrise.jpg?b=1&s=170667a&w=0&k=20&c=ftoG5oljywajspsDYs9N37LgtiYYRHyySxgGpQb9r0Y="
-                );
+                // userprofileimg.setAttribute(
+                //   "src",
+                //   users.data().ProfilePicture || "https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659651__340.png"
+                // );
+                background.style.backgroundImage=  `url('${users.data().CoverPicture || "../assets/pxfuel.jpg"}')`;
               }
             }
           });
@@ -138,39 +143,40 @@ firebase.auth().onAuthStateChanged((user) => {
     window.location.assign("./login.html");
   }
 });
-postsshowbutton.addEventListener("click", () => {
-  userdata.style.display = "none";
-  currentuserpost.style.display = "block";
-  postsshowbutton.style.backgroundColor = "#0000ff";
-  postsshowbutton.style.color = "white";
-  showuserprofilebutton.style.backgroundColor = "white";
-  showuserprofilebutton.style.color = "#0000ff";
-  document.getElementById("currentuserpostsdiv").style.display = "flex";
-});
-showuserprofilebutton.addEventListener("click", () => {
-  userdata.style.display = "block";
-  currentuserpost.style.display = "none";
-  showuserprofilebutton.style.backgroundColor = "#0000ff";
-  showuserprofilebutton.style.color = "white";
-  postsshowbutton.style.backgroundColor = "white";
-  postsshowbutton.style.color = "#0000ff";
-  document.getElementById("currentuserpostsdiv").style.display = "none";
-});
+// postsshowbutton.addEventListener("click", () => {
+//   userdata.style.display = "none";
+//   currentuserpost.style.display = "block";
+//   postsshowbutton.style.backgroundColor = "#0000ff";
+//   postsshowbutton.style.color = "white";
+//   showuserprofilebutton.style.backgroundColor = "white";
+//   showuserprofilebutton.style.color = "#0000ff";
+//   document.getElementById("currentuserpostsdiv").style.display = "flex";
+// });
+// showuserprofilebutton.addEventListener("click", () => {
+//   userdata.style.display = "block";
+//   currentuserpost.style.display = "none";
+//   showuserprofilebutton.style.backgroundColor = "#0000ff";
+//   showuserprofilebutton.style.color = "white";
+//   postsshowbutton.style.backgroundColor = "white";
+//   postsshowbutton.style.color = "#0000ff";
+//   document.getElementById("currentuserpostsdiv").style.display = "none";
+// });
 
 // update button
 let update = () => {
   if (firstName.value === "") {
-    message.innerHTML = "First Name Required";
-    message.style.color = "red";
+    alert("First Name Required");
+  
     firstName.focus();
   } else if (lastname.value === "") {
-    message.innerHTML = "Last Name Required";
-    message.style.color = "red";
+    alert("Last Name Required")
+    // message.innerHTML = "Last Name Required";
+    // message.style.color = "red";
     lastname.focus();
   } else {
     var data = {
-      firstName: firstName.value,
-      lastName: lastname.value,
+      FirstName: firstName.value,
+      LastName: lastname.value,
       Description: description.value
     };
     console.log(data);
@@ -181,10 +187,11 @@ let update = () => {
       .update(data)
       .then((res) => {
         console.log(res);
-        message.innerHTML = "Successfully Updated";
-        message.style.color = "green";
+        alert("Successfully Updated");
+        // message.innerHTML = "Successfully Updated";
+        // message.style.color = "green";
         setTimeout(() => {
-          message.innerHTML = "";
+        //   message.innerHTML = "";
         }, 3000);
       })
       .catch((error) => {
@@ -244,7 +251,7 @@ firebase
                 userprofileimage.setAttribute(
                   "src",
                   res.data().ProfilePicture === ""
-                    ? "https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659651__340.png"
+                    ? "../assets/user-default.jpg"
                     : res.data().ProfilePicture
                 );
                 userprofileimage.setAttribute("class", "profileimage");
@@ -270,94 +277,94 @@ firebase
                   "editanddeletbtn col-4"
                 );
 
-                var editbtn = document.createElement("i");
-                editanddeltebtndiv.appendChild(editbtn);
-                editbtn.setAttribute("class", "fa-solid fa-pencil postsbtn");
-                editbtn.setAttribute("id", "editbtn");
+                // var editbtn = document.createElement("i");
+                // editanddeltebtndiv.appendChild(editbtn);
+                // editbtn.setAttribute("class", "fa-solid fa-pencil postsbtn");
+                // editbtn.setAttribute("id", "editbtn");
 
                 // edit button
-                editbtn.addEventListener("click", () => {
-                  showposts.style.display = "none";
-                  let maincreate = document.getElementById("maincreate");
-                  let user = document.getElementById("userdiv");
-                  let userprodiv = document.createElement("div");
-                  let userprofileimage = document.createElement("img");
-                  user.appendChild(userprodiv);
-                  userprodiv.setAttribute("class", "userprodiv");
-                  userprodiv.appendChild(userprofileimage);
-                  userprofileimage.setAttribute(
-                    "src",
-                    res.data().ProfilePicture === ""
-                      ? "https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659651__340.png"
-                      : res.data().ProfilePicture
-                  );
-                  userprofileimage.setAttribute("class", "profileimage");
-                  let userdiv = document.createElement("div");
-                  userprodiv.appendChild(userdiv);
-                  userdiv.setAttribute("class", "col-6");
-                  let = username = document.createElement("h6");
-                  userdiv.appendChild(username);
-                  username.innerHTML = `${res.data().FirstName} ${
-                    res.data().LastName
-                  }`;
-                  let = date = document.createElement("h6");
-                  userdiv.appendChild(date);
-                  date.innerHTML = `${allposts[i].Date} `;
-                  let postdetail = document.createElement("p");
-                  postheader.appendChild(postdetail);
-                  maincreate.style.display = "block";
-                  textareaupdate.innerHTML = allposts[i].postvalue;
+                // editbtn.addEventListener("click", () => {
+                //   showposts.style.display = "none";
+                //   let maincreate = document.getElementById("maincreate");
+                //   let user = document.getElementById("userdiv");
+                //   let userprodiv = document.createElement("div");
+                //   let userprofileimage = document.createElement("img");
+                //   user.appendChild(userprodiv);
+                //   userprodiv.setAttribute("class", "userprodiv");
+                //   userprodiv.appendChild(userprofileimage);
+                //   userprofileimage.setAttribute(
+                //     "src",
+                //     res.data().ProfilePicture === ""
+                //       ? "https://cdn.pixabay.com/photo/2015/03/04/22/35/avatar-659651__340.png"
+                //       : res.data().ProfilePicture
+                //   );
+                //   userprofileimage.setAttribute("class", "profileimage");
+                //   let userdiv = document.createElement("div");
+                //   userprodiv.appendChild(userdiv);
+                //   userdiv.setAttribute("class", "col-6");
+                //   let = username = document.createElement("h6");
+                //   userdiv.appendChild(username);
+                //   username.innerHTML = `${res.data().FirstName} ${
+                //     res.data().LastName
+                //   }`;
+                //   let = date = document.createElement("h6");
+                //   userdiv.appendChild(date);
+                //   date.innerHTML = `${allposts[i].Date} `;
+                //   let postdetail = document.createElement("p");
+                //   postheader.appendChild(postdetail);
+                //   maincreate.style.display = "block";
+                //   textareaupdate.innerHTML = allposts[i].postvalue;
 
                   
-                let updatepostbtn = document.getElementById("updatepostbtn");
-                updatepostbtn.addEventListener("click", () => {
-                  var aa = {
-                    postvalue: textareaupdate.value,
-                    url: updateurl ||"",
-                    filetype: fileType||""
-                  };
-                  firebase
-                    .firestore()
-                    .collection("posts")
-                    .doc(allposts[i].id)
-                    .update(aa)
-                    .then(() => {
-                      maincreate.style.display = "none";
-                      showposts.style.display = "block";
-                    });
-                });
-                });
+                // let updatepostbtn = document.getElementById("updatedatabutton");
+                // updatepostbtn.addEventListener("click", () => {
+                //   var aa = {
+                //     postvalue: textareaupdate.value,
+                //     url: updateurl ||"",
+                //     filetype: fileType||""
+                //   };
+                //   firebase
+                //     .firestore()
+                //     .collection("posts")
+                //     .doc(allposts[i].id)
+                //     .update(aa)
+                //     .then(() => {
+                //       maincreate.style.display = "none";
+                //       showposts.style.display = "block";
+                //     });
+                // });
+                // });
 
-                var deletbtn = document.createElement("i");
-                editanddeltebtndiv.appendChild(deletbtn);
-                deletbtn.setAttribute("class", "fa-solid fa-trash postsbtn");
-                deletbtn.setAttribute("id", "deletebtn");
-                deletbtn.style.marginLeft = "8px";
+                // var deletbtn = document.createElement("i");
+                // editanddeltebtndiv.appendChild(deletbtn);
+                // deletbtn.setAttribute("class", "fa-solid fa-trash postsbtn");
+                // deletbtn.setAttribute("id", "deletebtn");
+                // deletbtn.style.marginLeft = "8px";
 
-                // dlete button
-                deletbtn.addEventListener("click", () => {
-                  swal({
-                    title: "Are you sure?",
-                    text: "Once deleted, you will not be able to recover this Post !",
-                    icon: "warning",
-                    buttons: true,
-                    dangerMode: true
-                  }).then((willDelete) => {
-                    if (willDelete) {
-                      swal("Poof! Your imaginary file has been deleted!", {
-                        icon: "success"
-                      });
-                      firebase
-                        .firestore()
-                        .collection("posts")
-                        .doc(allposts[i].id)
-                        .delete();
-                      //Message
-                    } else {
-                      swal("Your imaginary file is safe!");
-                    }
-                  });
-                });
+                // // dlete button
+                // deletbtn.addEventListener("click", () => {
+                //   swal({
+                //     title: "Are you sure?",
+                //     text: "Once deleted, you will not be able to recover this Post !",
+                //     icon: "warning",
+                //     buttons: true,
+                //     dangerMode: true
+                //   }).then((willDelete) => {
+                //     if (willDelete) {
+                //       swal("Poof! Your imaginary file has been deleted!", {
+                //         icon: "success"
+                //       });
+                //       firebase
+                //         .firestore()
+                //         .collection("posts")
+                //         .doc(allposts[i].id)
+                //         .delete();
+                //       //Message
+                //     } else {
+                //       swal("Your imaginary file is safe!");
+                //     }
+                //   });
+                // });
 
                 postdetail.innerHTML = allposts[i].postvalue;
                 if (allposts[i].url !== "") {
@@ -409,8 +416,8 @@ firebase
                   likeIndex++
                 ) {
                   if (likearry[likeIndex] === uid) {
-                    likeicon.style.color = "blue";
-                    liketitle.style.color = "blue";
+                    likeicon.style.color = "green";
+                    liketitle.style.color = "green";
                   }
                 }
                 //like function
@@ -456,8 +463,8 @@ firebase
                   dislikeindex++
                 ) {
                   if (dislikearry[dislikeindex] === uid) {
-                    dislikeicon.style.color = "blue";
-                    disliketitle.style.color = "blue";
+                    dislikeicon.style.color = "red";
+                    disliketitle.style.color = "red";
                   }
                 }
                 dislikebutton.addEventListener("click", () => {
@@ -495,6 +502,11 @@ firebase
                 commentbutton.appendChild(commentmessage);
                 commentmessage.setAttribute("class", "impressionstitle");
                 commentmessage.innerHTML = `Comment (${commentarry.length})`;
+
+                let comments = document.createElement("div");
+                comments.style.display='none';
+
+            postmain.appendChild(comments);
                 // comment fuction
                 if (commentarry.length !== 0) {
                   for (
@@ -503,7 +515,7 @@ firebase
                     commentindex++
                   ) {
                     let commentmain = document.createElement("div");
-                    postmain.appendChild(commentmain);
+                    comments.appendChild(commentmain);
                     commentmain.setAttribute("class", "commentmain");
                     let commentprofileimage = document.createElement("img");
                     commentmain.appendChild(commentprofileimage);
@@ -533,8 +545,8 @@ firebase
                           );
                         }
                         commentusername.innerHTML = `${
-                          currentuserres.data().firstName
-                        } ${currentuserres.data().lastName}`;
+                          currentuserres.data().FirstName
+                        } ${currentuserres.data().LastName}`;
                       });
                     let commentvalue = document.createElement("p");
                     commentmessage.appendChild(commentvalue);
@@ -551,9 +563,22 @@ firebase
                 commentinput.setAttribute("placeholder", "Write Comment.....");
                 let sendbutton = document.createElement("img");
                 writecomment.appendChild(sendbutton);
-                sendbutton.setAttribute("src", "https://cdn-icons-png.flaticon.com/512/3682/3682321.png");
+                sendbutton.setAttribute("src", "../assets/paperplane.png");
                 sendbutton.setAttribute("class", "sendbutton");
 
+                writecomment.style.display='none';
+                // commentmain.style.display='none';
+
+
+                commentbutton.addEventListener("click", function () {
+                if(writecomment.style.display=='none'){
+                    writecomment.style.display='flex';
+                    comments.style.display='block';
+                } else{
+                    writecomment.style.display='none';
+                    comments.style.display='none';
+                }
+                });
                 //comment fuction
                 sendbutton.addEventListener("click", () => {
                   if (commentinput.value === "") {

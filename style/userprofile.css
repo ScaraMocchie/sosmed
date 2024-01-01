@@ -221,7 +221,7 @@
   }
   #showposts {
     height: auto;
-    max-height: 18vh;
+   height: 800px;
     width: 100% !important;
     overflow: auto;
   }
@@ -270,7 +270,7 @@
   #editabledatadiv::-webkit-scrollbar-thumb,
   #maincreate::-webkit-scrollbar-thumb,
   #showposts::-webkit-scrollbar-thumb {
-    background-color: #3360f8;
+    background-color: #E7D184 ;
     border-radius: 10px;
   }
   #userprofileandpostsdiv {
