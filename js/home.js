@@ -318,8 +318,8 @@ firebase
               dislikeindex++
             ) {
               if (dislikearry[dislikeindex] === uid) {
-                dislikeicon.style.color = "green";
-                disliketitle.style.color = "green";
+                dislikeicon.style.color = "red";
+                disliketitle.style.color = "red";
               }
             }
             dislikebutton.addEventListener("click", () => {
