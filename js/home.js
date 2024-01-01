@@ -86,11 +86,8 @@ document.addEventListener("DOMContentLoaded", function () {
   postInput.addEventListener("click", function () {
       imageContentInput.classList.add("active");
   });
-
-  postInput.addEventListener("blur", function () {
-      imageContentInput.classList.remove("active");
-  });
 });
+
 
 
 var loading = document.getElementById("loaderdiv");

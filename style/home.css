@@ -44,9 +44,10 @@ body{
 
 .user-profile{
     background-color: #fcf9f6;
-    padding: 30px;
+    padding: 10px;
     margin: 10px;
     border-radius: 18px;
+    padding-bottom: 20px;
 }
 
 .inputpost{
