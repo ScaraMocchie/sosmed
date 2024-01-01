@@ -368,3 +368,55 @@ p{
     flex-direction: row;
     align-items: center;
   }
+
+  .sendbutton {
+    width: 30px;
+    cursor: pointer;
+    background-color:  #E7D184;
+    object-fit: cover;
+    padding: 10px;
+    border-radius: 18px;
+  }
+  .commentmain {
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 1px solid rgb(228, 225, 225); */
+  }
+  .commentprofileimage {
+    object-fit: cover;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    margin-right: 5px;
+  }
+  .commentmain > div {
+    background-color: #f4f5f7;
+    padding: 10px;
+    border-radius: 10px;
+    width: 85%;
+    margin-right: 10px;
+  }
+  .writecomment {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+  }
+
+  .commentinput {
+    width: 80%;
+    background-color: #f4f5f7;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    margin-left: 5px;
+    font-size: 15px;
+    padding-left: 20px;
+  }

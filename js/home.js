@@ -147,14 +147,7 @@ function createpost() {
 }
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  var postInput = document.getElementById("postInput");
-  var imageContentInput = document.getElementById("imageContentInput");
 
-  postInput.addEventListener("click", function () {
-      imageContentInput.classList.add("active");
-  });
-});
 
 
 
@@ -347,6 +340,7 @@ firebase
             });
 
             let commentbtn = document.createElement("button");
+            commentbtn.setAttribute("id", "cmntbtn");
             footerdiv.appendChild(commentbtn);
 
             var commenticon = document.createElement("i");
@@ -357,4 +351,122 @@ firebase
             commentbtn.appendChild(commentmessage);
             commentmessage.setAttribute("class", "impressionstitle");
             commentmessage.innerHTML = `Comment (${commentarry.length})`;
+
+            let comments = document.createElement("div");
+            comments.setAttribute("id", "kom");
+            comments.style.display='none';
+
+            postmain.appendChild(comments);
+
+            //isi komen orang
+            if (commentarry.length !== 0) {
+              for (
+                var commentindex = 0;
+                commentindex < commentarry.length;
+                commentindex++
+              ) {
+                let commentmain = document.createElement("div");
+                // commentmain.setAttribute("id", "commentmain");
+                // postmain.appendChild(commentmain);
+                comments.appendChild(commentmain);
+
+                commentmain.setAttribute("class", "commentmain");
+                let commentprofileimage = document.createElement("img");
+                commentmain.appendChild(commentprofileimage);
+                commentprofileimage.setAttribute(
+                  "class",
+                  "commentprofileimage"
+                );
+                var commentmessage = document.createElement("div");
+                let commentusername = document.createElement("h6");
+                commentmain.appendChild(commentmessage);
+                commentmessage.appendChild(commentusername);
+                //user data
+                firebase
+                  .firestore()
+                  .collection("Users")
+                  .doc(commentarry[commentindex].uid)
+                  .get()
+                  .then((currentuserres) => {
+                    commentprofileimage.setAttribute(
+                      "src", "../assets/user-default.jpg"
+                    );
+                    if (currentuserres.data().ProfilePicture !== "") {
+                      commentprofileimage.setAttribute(
+                        "src",
+                        currentuserres.data().ProfilePicture
+                      );
+                    }
+                    commentusername.innerHTML = `${currentuserres.data().FirstName
+                      } ${currentuserres.data().LastName}`;
+                  });
+                let commentvalue = document.createElement("p");
+                commentmessage.appendChild(commentvalue);
+                commentvalue.innerHTML = commentarry[commentindex].commentvalue;
+              }
+            }
+
+            // comment input
+            let writecomment = document.createElement("div");
+            writecomment.setAttribute("id", "sendcmnt");
+            writecomment.setAttribute("class", "writecomment");
+            postmain.appendChild(writecomment);
+
+            let commentinput = document.createElement("input");
+            writecomment.appendChild(commentinput);
+            commentinput.setAttribute("class", "commentinput");
+            commentinput.setAttribute("placeholder", "Write Comment.....");
+            let sendbutton = document.createElement("img");
+            writecomment.appendChild(sendbutton);
+            sendbutton.setAttribute("src", "../assets/paperplane.png");
+            sendbutton.setAttribute("class", "sendbutton");
+
+            writecomment.style.display='none';
+
+
+            cmntbtn.addEventListener("click", function () {
+              if(writecomment.style.display=='none'){
+                writecomment.style.display='flex';
+                comments.style.display='block';
+              } else{
+                writecomment.style.display='none';
+                comments.style.display='none';
+              }
+            });
+
+            sendbutton.addEventListener("click", () => {
+              if (commentinput.value === "") {
+                alert("Please write something.....!");
+              } else {
+                let commentdata = {
+                  commentvalue: commentinput.value,
+                  uid: uid,
+                };
+                commentarry.push(commentdata);
+                firebase
+                  .firestore()
+                  .collection("posts")
+                  .doc(allposts[i].id)
+                  .update({
+                    comments: commentarry,
+                  });
+                  writecomment.style.display='flex';
+                  comments.style.display='block';
+              }
+            });
+        
+          
+
           })}}})
+
+
+          document.addEventListener("DOMContentLoaded", function () {
+            var postInput = document.getElementById("postInput");
+            var imageContentInput = document.getElementById("imageContentInput");
+          
+            postInput.addEventListener("click", function () {
+                imageContentInput.classList.add("active");
+            });
+          
+          
+          });
