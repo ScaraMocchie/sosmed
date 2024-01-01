@@ -117,6 +117,8 @@ async function openEditModal(userId) {
   document.getElementById("LastName").value = userData.LastName;
   document.getElementById("ProfilePicture").value = userData.ProfilePicture || '';
 
+  document.getElementById("Email").readOnly = true;
+
   window.updateUser = async () => {
     const editedUsername = document.getElementById("Username").value;
     const editedEmail = document.getElementById("Email").value;
@@ -136,6 +138,17 @@ async function openEditModal(userId) {
 
     closeModal();
     displayUsers();
+  };
+
+  window.deleteUser = async () => {
+    const confirmDelete = confirm("Are you sure you want to delete this user?");
+    if (confirmDelete) {
+      const userDocRef = doc(db, "Users", userId);
+      await deleteDoc(userDocRef);
+  
+      closeModal();
+      displayUsers();
+    }
   };
 }
 

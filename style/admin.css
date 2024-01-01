@@ -147,47 +147,86 @@ th {
 }
 
 .modal-header {
-    display: flex;
-    gap: 390px;
-    background-color: #faf0e6;
-    padding: 10px;
-    border-top-right-radius: 7px;
-    border-top-left-radius: 7px;
+  display: flex;
+  gap: 390px;
+  background-color: #faf0e6;
+  padding: 10px;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
 }
 
 .modal-body {
-    padding: 20px;
+  padding: 20px;
 }
 
-.modal-footer{
-    padding: 20px;
+.modal-footer {
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
 }
 
-.close{
-    padding: 5px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    background-color: #fcf9f6;
-    border: 1px solid #fcf9f6;
-    border-radius: 3px;
+.close {
+  padding: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  background-color: #fcf9f6;
+  border: 1px solid #fcf9f6;
+  border-radius: 3px;
 }
 
-.close:hover{
-    background-color: #f9e6d3;
-    border: 1px solid #f9e6d3;
+.close:hover {
+  background-color: #f9e6d3;
+  border: 1px solid #f9e6d3;
 }
 
-.input{
-    background-color: #fcf9f6;
-    padding: 3px;
-    border: none;
-    border-radius: 3px;
+.input {
+  background-color: #fcf9f6;
+  padding: 3px;
+  border: none;
+  border-radius: 3px;
 }
 
-.bar{
-    background-color: #c2c3e1;
-    padding: 5px;
-    border: none;
-    border-radius: 3px;
-    margin-bottom: 5px;
+.bar {
+  background-color: #c2c3e1;
+  padding: 5px;
+  border: none;
+  border-radius: 3px;
+  margin-bottom: 5px;
+}
+
+.update {
+  background-color: #b5c8b5;
+  border: none;
+  padding: 8px 10px;
+  padding-top: 6px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.update:hover {
+  background-color: #92ad92;
+  color: #fcf9f6;
+}
+
+.delete {
+  background-color: #fdbfb0;
+  border: none;
+  padding: 8px 10px;
+  padding-top: 6px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.delete:hover {
+  background-color: #ffa590;
+  color: #fcf9f6;
 }

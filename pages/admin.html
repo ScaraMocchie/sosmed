@@ -71,7 +71,7 @@
             </div>
             <div class="bar">
               <label for="email">Email: </label>
-              <input type="text" id="Email" class="input" style="margin-left: 70px;"/><br />
+              <input type="text" id="Email" readonly class="input" style="margin-left: 70px; color: #868585;"/><br />
             </div>
             <div class="bar">
               <label for="firstname">First Name: </label>
@@ -87,8 +87,8 @@
             </div>
           </div>
           <div class="modal-footer">
-            <button onclick="updateUser()">Update</button>
-            <button onclick="closeModal()">Cancel</button>
+            <button onclick="updateUser()" class="update">Update</button>
+            <button onclick="deleteUser()" class="delete">Delete</button>
           </div>
         </div>
       </div>
