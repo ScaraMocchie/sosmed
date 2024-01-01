@@ -1,29 +1,99 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Admin Page</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <!-- <link rel='stylesheet' type='text/css' media='screen' href='main.css'> -->
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-firestore.js"></script>
-</head>
-<body>
-    <table id="user-table">
-        <thead>
-            <tr>
-                <th>User ID</th>
-                <th>Username</th>
-                <th>First Name</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody id="user-table-body"></tbody>
-    </table>
-    <script src="../js/firebase.js"></script>
-    <script src="../js/firebase.js"></script>
-</body>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="../style/admin.css" />
+    <link rel="icon" type="image/x-icon" href="../assets/logo.png" />
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <img src="../assets/logo.png" , width="30px" />
+        <h2>dynami</h2>
+      </div>
+
+      <div class="userlogout">
+        <button id="logout" onClick="logout()">
+          <i
+            class="fa fa-sign-out"
+            style="color: #575757"
+            aria-hidden="true"
+          ></i>
+          <p>Log Out</p>
+        </button>
+      </div>
+    </nav>
+
+    <div class="content1">
+      <div style="margin-left: 450px">
+        <h1>Welcome to Admin page!</h1>
+        <h4>Here are users of Dynami</h4>
+      </div>
+      <div class="table-container">
+        <table>
+          <thead class="text-center">
+            <th>No</th>
+            <th>Username</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Photo</th>
+            <th>Settings</th>
+          </thead>
+          <tbody id="tablebody"></tbody>
+        </table>
+      </div>
+
+      <!-- Modal for editing user data -->
+      <div id="editModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title" id="exampleModalCenterTitle">Edit User</h3>
+            <button type="button" class="close" onclick="closeModal()">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="bar">
+              <label for="editedUsername">Username:</label>
+              <input type="text" id="Username" class="input" style="margin-left: 34px;"/>
+            </div>
+            <div class="bar">
+              <label for="email">Email: </label>
+              <input type="text" id="Email" class="input" style="margin-left: 70px;"/><br />
+            </div>
+            <div class="bar">
+              <label for="firstname">First Name: </label>
+              <input type="text" id="FirstName" class="input" style="margin-left: 28px;"/><br />
+            </div>
+            <div class="bar">
+              <label for="lastname">Last Name: </label>
+              <input type="text" id="LastName" class="input" style="margin-left: 29px;"/><br />
+            </div>
+            <div class="bar">
+              <label for="profilepicture">Profile Picture: </label>
+              <input type="image" id="ProfilePicture" class="input" style="margin-left: 5px;"/><br />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button onclick="updateUser()">Update</button>
+            <button onclick="closeModal()">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="../js/admin.mjs"></script>
+  </body>
 </html>

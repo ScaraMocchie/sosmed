@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login Page</title>
+    <link rel="stylesheet" href="../style/login.css">
+    <link rel="icon" type="image/x-icon" href="../assets/logo.png">
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-firestore.js"></script>
+</head>
+
+<body>
+    <div class="asset">
+      <div class="logo">
+        <img src="../assets/logo.png" alt="">
+        <h2>dynami</h2>
+      </div>
+      <img src="../assets/login.png" class="editorial">
+    </div>
+    <div class="right">
+      <div class="main">
+        <div class="div-1">
+          <div class="div-2">
+            <h2>Hi Admin,</h2>
+            <h2>Welcome back!</h2>
+          </div>
+          
+          <div class="div-3">
+            <div class="div-h3">
+              <h4>Host Key :</h4>
+            </div>
+            <input
+              type="password"
+              value=""
+              class="input"
+              placeholder="Enter Host Key"
+              name="email"
+              id="password"
+            />
+          </div>
+
+          <div class="div-3">
+            <div class="div-h3">
+              <h4>
+                Captcha : <span id="captcha1"></span> +
+                <span id="captcha2"></span>?
+              </h4>
+            </div>
+            <input
+              type="number"
+              class="input"
+              placeholder="Enter Captcha"
+              id="captcha-input"
+            />
+          </div>
+
+          <p id="message" style="font-size: 14px; font-style: italic; margin-top: 5px;"></p>
+          
+          <div class="div-4" style="margin-top: 20px;">
+            <button id="admin" onClick="Admin()">Log In</button>
+          </div>
+         
+          <div class="div-6">
+            <p>Do you want change to user? <span id="login" onClick="Login()">login here!</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <script src="../js/firebase.js"></script>
+      <script src="../js/adminlogin.js"></script>
+      <script src="../js/register.js"></script>
+      
+</body>
+</html>
