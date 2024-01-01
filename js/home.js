@@ -62,7 +62,7 @@ const logout =  () => {
     });
   }
 const profile= ()=>{
-  window.location.href = "../pages/profile.html"; 
+  window.location.href = "../pages/userprofile.html"; 
 }
   function adjustInputHeight(textarea) {
     textarea.style.height = "auto";
