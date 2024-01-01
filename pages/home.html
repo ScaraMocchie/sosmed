@@ -11,6 +11,7 @@
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-storage.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../style/home.css">
 </head>
@@ -64,12 +65,12 @@
                     <!-- Modify the existing contentinput div -->
                     <div class="contentinput" id="contentInputContainer">
                         <form>
-                            <textarea id="postInput" placeholder="What's up?" oninput="adjustInputHeight(this)" onfocus="toggleImageInput(true)" onblur="toggleImageInput(false)"></textarea>
+                            <textarea id="postInput" placeholder="What's up?" oninput="adjustInputHeight(this)"></textarea>
 
                             <div class="imagecontentinput" id="imageContentInput">
                                 <div class="see not">
                                     <button>
-                                        <input type="file" id="imageInput" accept="image/*" class="image-input-label" onchange="insertImage()">
+                                        <input type="file" id="imageInput" accept="image/*" class="image-input-label" onchange="insertImage(event)">
                                         <p>Insert Image</p>
                                         <i class="fa fa-picture-o" aria-hidden="true"></i>
                                     </button>
@@ -80,7 +81,7 @@
                         </form>
                     </div>
                 </div>
-                <button class="postbutton"><img src="../assets/paperplane.png" width="38px"></button>
+                <a class="postbutton" onclick="createpost()"><img src="../assets/paperplane.png" width="38px"></a>
             </div>
             <div id="createpostdiv" class="col-12">
   

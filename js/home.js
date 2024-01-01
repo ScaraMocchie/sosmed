@@ -3,15 +3,22 @@ let userprofileimgsml = document.getElementById("userprofileimgsml");
 let userprofileimglrg = document.getElementById("userprofileimglrg");
 let background =  document.getElementById("background");
 
+let postvalue = document.getElementById("postInput");
+let fileType = "";
+let currentuser = "";
+let url = "";
+
 let name2 = document.getElementById("name");
 let username = document.getElementById("username");
 
 let alluser = [];
-let fileType = "";
+
+
 
 firebase.auth().onAuthStateChanged((user) => {
   if (user) {
     uid = user.uid;
+    currentuser = user;
       // console.log("emailVerified true");
       firebase
         .firestore()
@@ -62,12 +69,36 @@ const profile= ()=>{
     textarea.style.height = (textarea.scrollHeight) + "px";
 }
 
-function insertImage() {
+let uploadimg = (event) => {
+  fileType = event.target.files[0].type;
+  var uploadfile = firebase
+    .storage()
+    .ref()
+    .child(`postFiles/${event.target.files[0].name}`)
+    .put(event.target.files[0]);
+  uploadfile.on(
+    "state_changed",
+    (snapshot) => {
+    },
+    (error) => { },
+    () => {
+      uploadfile.snapshot.ref.getDownloadURL().then((downloadURL) => {
+        url = downloadURL;
+        console.log(url);
+
+      });
+    }
+  );
+};
+
+function insertImage(event) {
+    uploadimg(event);
     var imageInput = document.getElementById("imageInput");
     var postInput = document.getElementById("postInput");
     var selectedImageContainer = document.getElementById("selectedImageContainer");
-
     var file = imageInput.files[0];
+    fileType = file.type;
+
     if (file) {
         var reader = new FileReader();
         reader.onload = function (e) {
@@ -77,7 +108,44 @@ function insertImage() {
         reader.readAsDataURL(file);
         imageInput.value = '';
     }
+};
+
+var d = new Date().toLocaleDateString();
+
+function createpost() {
+  if (postvalue.value !== "" || url !== "") {
+    firebase
+      .firestore()
+      .collection("posts")
+      .add({
+        postvalue: postvalue.value,
+        uid: currentuser.uid,
+        url: url,
+        filetype: fileType,
+        like: [],
+        dislikes: [],
+        comments: [],
+        Date: `${d}`
+      })
+      .then((res) => {
+        firebase
+          .firestore()
+          .collection("posts/")
+          .doc(res.id)
+          .update({
+            id: res.id
+          })
+          .then(() => {
+            setTimeout(() => {
+              location.reload();
+            }, 2000);
+          });
+      });
+     
+  }
+
 }
+
 
 document.addEventListener("DOMContentLoaded", function () {
   var postInput = document.getElementById("postInput");
@@ -105,6 +173,7 @@ firebase
       onSnapshot.forEach((postres) => {
         allposts.push(postres.data());
       });
+      // allposts.sort((a, b) => (a.Date > b.Date ? 1 : -1));
       showposts.style.display = "block";
       showposts.innerHTML = "";
       for (let i = 0; i < allposts.length; i++) {
