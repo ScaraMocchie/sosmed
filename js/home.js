@@ -340,7 +340,7 @@ firebase
             });
 
             let commentbtn = document.createElement("button");
-            commentbtn.setAttribute("id", "cmntbtn");
+            // commentbtn.setAttribute("id", "cmntbtn");
             footerdiv.appendChild(commentbtn);
 
             var commenticon = document.createElement("i");
@@ -353,7 +353,7 @@ firebase
             commentmessage.innerHTML = `Comment (${commentarry.length})`;
 
             let comments = document.createElement("div");
-            comments.setAttribute("id", "kom");
+     
             comments.style.display='none';
 
             postmain.appendChild(comments);
@@ -398,7 +398,7 @@ firebase
                       );
                     }
                     commentusername.innerHTML = `${currentuserres.data().FirstName
-                      } ${currentuserres.data().LastName}`;
+                      } ${currentuserres.data().LastName} @${currentuserres.data().Username}`;
                   });
                 let commentvalue = document.createElement("p");
                 commentmessage.appendChild(commentvalue);
@@ -408,7 +408,7 @@ firebase
 
             // comment input
             let writecomment = document.createElement("div");
-            writecomment.setAttribute("id", "sendcmnt");
+            // writecomment.setAttribute("id", "sendcmnt");
             writecomment.setAttribute("class", "writecomment");
             postmain.appendChild(writecomment);
 
@@ -424,7 +424,7 @@ firebase
             writecomment.style.display='none';
 
 
-            cmntbtn.addEventListener("click", function () {
+            commentbtn.addEventListener("click", function () {
               if(writecomment.style.display=='none'){
                 writecomment.style.display='flex';
                 comments.style.display='block';
@@ -450,8 +450,8 @@ firebase
                   .update({
                     comments: commentarry,
                   });
-                  writecomment.style.display='flex';
-                  comments.style.display='block';
+                  // writecomment.style.display='flex';
+                  // comments.style.display='block';
               }
             });
         
