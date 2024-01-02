@@ -112,7 +112,7 @@ function insertImage(event) {
 
 var d = new Date().toLocaleDateString();
 
-function createpost() {
+function post() {
   if (postvalue.value !== "" || url !== "") {
     firebase
       .firestore()
