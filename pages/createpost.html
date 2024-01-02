@@ -3,93 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://kit.fontawesome.com/0b4039aefe.js"></script>
+    <title>add post</title>
+    <link rel="icon" type="image/x-icon" href="../assets/logo.png">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-storage.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script
       src="https://kit.fontawesome.com/0b4039aefe.js"
       crossorigin="anonymous"
     ></script>
-    <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="../style/nav.css">
     <link rel="stylesheet" href="../style/createpost.css">
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-storage.js"></script>
 </head>
 <body>
+  <nav>
+    <div class="logo">
+        <img src="../assets/logo.png", width="30px">
+        <h2>dynami</h2>
+    </div>
+    <form class="searchbox">
+        <input type="search" placeholder="Search...">
+        <button type="find"><i class="fa fa-search"></i></button>
+    </form>
+    <div class="menu">
+        <a href="#">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <p style="line-height: 1.9;">Profile</p>
+        </a>
+        <a href="#">
+            <i class="fa fa-home" aria-hidden="true"></i>
+            <p class="homemenu">Home</p>
+        </a>
+        <a href="#">
+            <i class="fa fa-users" aria-hidden="true"></i>
+            <p style="line-height: 2;">Friends</p>
+        </a>
+        <a href="#">
+            <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            <p style="line-height: 2;">Add Post</p>
+        </a>
+    </div>
+    <div class="userlogout">
+        <button id="logout" onClick="logout()">
+            <i class="fa fa-sign-out" aria-hidden="true"></i>
+            <p>Log Out</p>
+        </button>
+    </div>
+</nav>
     <div id="container" class="container-fluid maindiv">
         <div class="container container-sm-12">
           <div class="col-xl-5 col-lg-6 col-md-8 col-sm-12 col-12">
-            <div class="nav col-12">
-              <li class="homeicons col-2">
-                <a href="./home.html"
-                  ><i
-                    class="fa-solid fa-house icons"
-                  ></i
-                ></a>
-              </li>
-              <li class="friendicons col-2">
-                <a href="./allfriends.html"
-                  ><i class="fa-solid fa-users icons"></i
-                ></a>
-              </li>
-              <li class="videosicon col-2">
-                <a href="./videos.html"
-                  ><i class="fa-solid fa-video icons"></i
-                ></a>
-              </li>
-              <li class="createposticon col-2">
-                <a href="./createpost.html"
-                  ><i class="fa-solid fa-circle-plus icons"
-                  style="background-color: #f0f2f5; color: blue"
-                  ></i
-                ></a>
-              </li>
-              <li class="userdetailsicon col-2">
-                <a href="./userdetails.html"
-                  ><i class="fa-solid fa-user icons"></i
-                ></a>
-              </li>
-              <li class="logouticon col-2" onclick="logout()">
-                <a><i class="fa-solid fa-right-from-bracket icons"></i></a>
-              </li>
-            </div>
-            <div class="maincreate" > 
-              <p class="createposttitle">Create Post</p>
-              <textarea
-                id="textarea"
-                cols="50"
-                rows="5"
-                placeholder="Type here"
-              ></textarea>
-              <label for="postfiles" id="imagesforpost"
-                >UPLOAD IMAGE OR VIDEO
-                <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQApv5wjO07wv95kSSPjF0H4RaoSr0hFaX6502Lcgd3oPOoTe17Dlry9FALUCSO9rz8NEo&usqp=CAU"
-                  alt=""
-                  id="uploadbuttonicon"
-              /></label>
+            <div class="maincreate" >
+              <textarea id="textarea" placeholder="What's up?" oninput="adjustInputHeight(this)" rows="5"></textarea>
+
+              <div class="imageinsert">
+                <label for="postfiles" id="imagesforpost"
+                >Insert image
+                <i class="fa fa-picture-o" aria-hidden="true" id="uploadbuttonicon" style="font-size: 50px;"></i></label>
+                <div id="selectedImageContainer"></div>
               <input
                 type="file"
                 id="postfiles"
                 style="visibility: hidden"
                 onchange="uploadimg(event)"
-              /><br><br>
+              />
+
+              </div>
+              <div id="submitbuttondiv" class="col-12">
+                <!-- <a id="createpostbtn" class="col-7" onclick="createpost()" style="text-decoration: none;">Post</a> -->
+                <a class="postbutton" id="createpostbtn" onclick="createpost()"><img src="../assets/paperplane.png" width="40px"></a>
+              </div>
+              </div>
+              
+              <br><br>
               <div class="progress" id="progressdiv" style="display: none;">
                 <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" id="progressbar"></div>
               </div>
               <p id="done" style="color: green;font-size: 15px; display: none;"></p>
               <div id="uploadedmssage">
-                <p style="color: green;font-size: 15px;">Uploaded</p>
+                <p style="color: green;font-size: 15px; visibility: hidden;">Uploaded</p>
               </div>
               
-              <div id="submitbuttondiv" style="margin-top: 10px;" class="col-12">
-                <a id="createpostbtn" class="col-7" onclick="createpost()" style="text-decoration: none;">Post</a>
-              </div>
+              
               </div>
             </div>
           </div>

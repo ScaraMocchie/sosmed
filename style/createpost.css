@@ -1,0 +1,460 @@
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=Lexend+Deca:wght@200;300;400;500;600;700;800&display=swap');
+
+*{
+    font-family: 'Borel', cursive;
+    font-family: 'Lexend Deca', sans-serif;
+    color: #575757;
+    margin: 0;
+    padding: 0;
+}
+
+.logo img{
+    width: 36px;
+}
+
+.logo h2{
+    padding-top: 20px;
+    font-family: 'Borel';
+    font-size: 24px;
+}
+
+.logo{
+    display: flex;
+    font-size: 25px;
+    align-items: center;
+    gap: 8px;
+    margin: 6px 30px;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    position: fixed;
+    width: 95%;
+    margin: 0;
+    background-color: #fbeef3;
+    z-index: 100;
+}
+
+body{
+    background-color: #F9E4EC;
+    margin: 0;
+}
+
+.user-profile{
+    background-color: #fcf9f6;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 18px;
+    padding-bottom: 20px;
+}
+
+.inputpost{
+    background-color: #fcf9f6;
+    padding: 30px;
+    margin: 10px;
+    margin-bottom: 50px;
+    border-radius: 18px;
+}
+
+.menu{
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.menu a{
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    text-decoration: none;
+    text-align: center;
+}
+
+.menu p{
+    font-size: 15px;
+    color: #9c9db9;
+}
+
+.homemenu{
+    line-height: 1.4;
+}
+
+.fa.fa-home{
+    font-size: 26px;
+}
+
+.menu i{
+    font-size: 22px;
+}
+
+
+.friend-recommend{
+    background-color: #fcf9f6;
+    padding: 30px;
+    margin: 10px;
+    border-radius: 18px;
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    padding: 90px;
+}
+
+.divider-1{
+    width: 60%;
+}
+
+.userlogout button{
+    display: flex;
+    background-color: transparent;
+    font-size: 24px;
+    border: none;
+    gap: 8px;
+    align-items: center;
+}
+
+.userlogout p{
+    font-size: 18px;
+    color: #9c9db9;
+    font-weight: 500;
+}
+
+.divider-2{
+    width: 25%;
+}
+
+.userphoto.satu{
+    width: 12%;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    margin-top: 8px;
+}
+
+.userphoto img{
+    border-radius: 50%;
+    border: 5px solid #fcf9f6;
+}
+
+.userphoto{
+    position: absolute;
+    margin-top: 80px;
+}
+
+.postform{
+    display: flex;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 130px;
+    background-repeat: none;
+    border-radius: 15px;
+}
+
+
+.contentinput{
+    width: 85%;
+    text-align: center;
+    display: block;
+    justify-content: center;
+}
+
+
+.userinfo{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.user-profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+}
+
+.jmlh{
+    font-size: 24px;
+}
+
+p{
+    font-size: 12px;
+}
+
+.see button{
+    width: 150px;
+    padding: 0px 13px;
+    background-color: #E7D184;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+.namauser{
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.maincreate textarea{
+    padding: 16px 0 0 16px;
+    border-radius: 20px;
+    border: none;
+    resize: none;
+    width: 100%;
+    background-color: #fdbfb09f;
+    outline: none;
+}
+
+.contentinput{
+    margin-top: 10px;
+}
+
+.userlogout{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.searchbox{
+    background-color: #c2c3e174;
+    padding: 8px;
+    width: 30%;
+    display: flex;
+    border-radius: 20px;
+    display:flex;
+}
+
+.searchbox input{
+    width: 95%;
+    border: none;
+    background-color: transparent;
+    padding: 4px;
+    outline: none;
+}
+
+.searchbox button{
+    background: none;
+    border: none;
+    font-size: 16px;
+}
+
+.fa{
+    color: #9c9db9;
+}
+
+#imageInput {
+    margin-top: 10px;
+    position: absolute;
+    width: 88px;
+    height: 22px;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.fa.fa-picture-o{
+    color: #575757;
+    font-size: 40px;
+}
+
+.see.not button{
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.imagecontentinput{
+    display: flex;
+    flex-direction: row;
+}
+
+#selectedImageContainer img {
+    max-width: 100%;
+    max-height: 112px;
+    margin-top: 10px;
+    margin-left: 0px;
+    display: flex;
+    border-radius: 18px;
+}
+
+.postbutton{
+    background-color: #E7D184;
+    padding: 13px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    float: right;
+    display: flex;
+}
+
+.userprodiv {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+}
+.userprodiv > div > h6 {
+    margin-top: 3px;
+    font-size: 15px;
+    margin-left: 10px;
+}
+.profileimage {
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    object-fit: cover;
+}
+
+.postimage {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 5px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.postmain {
+    background-color: white;
+    padding: 20px;
+    margin-bottom: 7px;
+    border-radius: 10px;
+    /* box-shadow: rgba(0, 0, 0, 0.253) 3.95px 3.95px 3.6px; */
+}
+.usernamee{
+    padding-top: 3px;
+    margin-left: 10px;
+    font-size: 14px;
+    color: rgba(128, 128, 128, 0.756);
+}
+
+.detailpost{
+    font-size: 15px;
+    font-weight: 300;
+    padding-bottom: 5px;
+}
+
+.footerdiv {
+    /* border-top: 1px solid rgb(206, 200, 200);
+    border-bottom: 1px solid rgb(206, 200, 200); */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.footerdiv > button {
+    border: none;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    color: #000000;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.sendbutton {
+    width: 30px;
+    cursor: pointer;
+    background-color:  #E7D184;
+    object-fit: cover;
+    padding: 20px;
+    border-radius: 18px;
+}
+.commentmain {
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 1px solid rgb(228, 225, 225); */
+}
+.commentprofileimage {
+    object-fit: cover;
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    margin-right: 5px;
+}
+.commentmain > div {
+    background-color: #f4f5f7;
+    padding: 10px;
+    border-radius: 10px;
+    width: 85%;
+    margin-right: 10px;
+  }
+.writecomment {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.commentinput {
+    width: 80%;
+    background-color: #f4f5f7;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    margin-left: 5px;
+    font-size: 15px;
+    padding-left: 20px;
+}
+
+.col-xl-5{
+    padding-top: 130px;
+}
+
+.maincreate{
+    margin-top: 0;
+    margin: 0 80px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 45px;
+    border-radius: 30px;
+    justify-content: center;
+    position: relative;
+}
+
+label{
+    background-color: #E7D184;
+    justify-content: center;
+    text-align: center;
+    padding: 45px;
+    height: 112px;
+    width: 110px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 12px 0 0 0;
+}
+
+.imageinsert{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.submitbuttondiv{
+    position: static;
+}
+
