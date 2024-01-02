@@ -125,7 +125,8 @@ function createpost() {
         like: [],
         dislikes: [],
         comments: [],
-        Date: `${d}`
+        Date: `${d}`,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       })
       .then((res) => {
         firebase
@@ -156,6 +157,7 @@ var showposts = document.getElementById("showposts");
 firebase
   .firestore()
   .collection("posts")
+  .orderBy('timestamp', 'desc')
   .onSnapshot((onSnapshot) => {
     loading.style.display = "none";
     let allposts = [];
