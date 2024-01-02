@@ -7,3 +7,6 @@ var friends = () => {
 var profile = () => {
     window.location.assign("../pages/userprofile.html");
 };
+var createpost = () => {
+  window.location.assign("../pages/createpost.html");
+};
