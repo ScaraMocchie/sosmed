@@ -35,6 +35,7 @@ firebase.auth().onAuthStateChanged((user) => {
         loading.style.display = "none";
         let allposts = [];
         if (onSnapshot.size === 0) {
+          jmlhpost.innerHTML = "0"
           // let nodata = document.getElementById("messagediv");
           // nodata.style.display = "block";
         } else {
