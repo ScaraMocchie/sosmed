@@ -43,19 +43,22 @@ body{
 }
 
 .user-profile{
-    background-color: #fcf9f6;
+    background-color: white;
     padding: 10px;
     margin: 10px;
     border-radius: 18px;
     padding-bottom: 20px;
+    position: fixed;
+    width: 20%;
 }
 
 .inputpost{
-    background-color: #fcf9f6;
+    background-color: white;
     padding: 30px;
-    margin: 10px;
+    margin: 0px;
     margin-bottom: 50px;
     border-radius: 18px;
+    margin-top: 10px;
 }
 
 .menu{
@@ -105,7 +108,7 @@ body{
 }
 
 .divider-1{
-    width: 60%;
+    width: 70%;
 }
 
 .userlogout button{
@@ -137,7 +140,7 @@ body{
 
 .userphoto img{
     border-radius: 50%;
-    border: 5px solid #fcf9f6;
+    border: 5px solid white;
 }
 
 .userphoto{
