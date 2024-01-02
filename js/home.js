@@ -7,6 +7,7 @@ let postvalue = document.getElementById("postInput");
 let fileType = "";
 let currentuser = "";
 let url = "";
+let jmlhpost = document.getElementById("jmlhpost");
 
 let name2 = document.getElementById("name");
 let username = document.getElementById("username");
@@ -20,6 +21,27 @@ firebase.auth().onAuthStateChanged((user) => {
     uid = user.uid;
     currentuser = user;
       // console.log("emailVerified true");
+      firebase
+  .firestore()
+  .collection("posts")
+  .onSnapshot((onSnapshot) => {
+    firebase
+      .firestore()
+      .collection("posts")
+      .where("uid", "==", uid)
+      .get()
+      .then((onSnapshot) => {
+        console.log(onSnapshot);
+        loading.style.display = "none";
+        let allposts = [];
+        if (onSnapshot.size === 0) {
+          // let nodata = document.getElementById("messagediv");
+          // nodata.style.display = "block";
+        } else {
+          onSnapshot.forEach((postres) => {
+            allposts.push(postres.data());
+            jmlhpost.innerHTML = allposts.length;
+          });}})})
       firebase
         .firestore()
         .collection("Users/")
