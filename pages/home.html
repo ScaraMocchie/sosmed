@@ -43,7 +43,7 @@
                 <i class="fa fa-users" aria-hidden="true"></i>
                 <p style="line-height: 2;">Friends</p>
             </a>
-            <a href="#">
+            <a onclick="createpost()">
                 <i class="fa fa-plus-circle" aria-hidden="true"></i>
                 <p style="line-height: 2;">Add Post</p>
             </a>
@@ -66,7 +66,6 @@
                     <div class="userphoto satu" >
                         <img src="../assets/user-default.jpg" width="55px" height="55px" id="userprofileimg" style="object-fit: cover">
                     </div>
-                    <!-- Modify the existing contentinput div -->
                     <div class="contentinput" id="contentInputContainer">
                         <form>
                             <textarea id="postInput" placeholder="What's up?" oninput="adjustInputHeight(this)"></textarea>
@@ -132,9 +131,6 @@
                 <div class="see">
                     <button onClick="profile()">See Profile</button>
                 </div>
-            </div>
-            <div class="friend-recommend">
-    
             </div>
         </div>
         

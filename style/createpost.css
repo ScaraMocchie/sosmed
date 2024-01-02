@@ -43,22 +43,19 @@ body{
 }
 
 .user-profile{
-    background-color: white;
+    background-color: #fcf9f6;
     padding: 10px;
     margin: 10px;
     border-radius: 18px;
     padding-bottom: 20px;
-    position: fixed;
-    width: 20%;
 }
 
 .inputpost{
-    background-color: white;
+    background-color: #fcf9f6;
     padding: 30px;
-    margin: 0px;
+    margin: 10px;
     margin-bottom: 50px;
     border-radius: 18px;
-    margin-top: 10px;
 }
 
 .menu{
@@ -108,7 +105,7 @@ body{
 }
 
 .divider-1{
-    width: 70%;
+    width: 60%;
 }
 
 .userlogout button{
@@ -140,7 +137,7 @@ body{
 
 .userphoto img{
     border-radius: 50%;
-    border: 5px solid white;
+    border: 5px solid #fcf9f6;
 }
 
 .userphoto{
@@ -193,7 +190,8 @@ p{
 }
 
 .see button{
-    padding: 6px 13px;
+    width: 150px;
+    padding: 0px 13px;
     background-color: #E7D184;
     border: none;
     border-radius: 20px;
@@ -208,7 +206,7 @@ p{
     text-align: center;
 }
 
-.contentinput textarea{
+.maincreate textarea{
     padding: 16px 0 0 16px;
     border-radius: 20px;
     border: none;
@@ -279,11 +277,7 @@ p{
     margin-top: 10px;
 }
 
-.imagecontentinput {
-    display: none;
-}
-
-.imagecontentinput.active {
+.imagecontentinput{
     display: flex;
     flex-direction: row;
 }
@@ -292,7 +286,7 @@ p{
     max-width: 100%;
     max-height: 112px;
     margin-top: 10px;
-    margin-left: 10px;
+    margin-left: 0px;
     display: flex;
     border-radius: 18px;
 }
@@ -304,64 +298,64 @@ p{
     border-radius: 50px;
     cursor: pointer;
     float: right;
+    display: flex;
 }
 
 .userprodiv {
     display: flex;
     flex-direction: row;
     margin-bottom: 10px;
-  }
-  .userprodiv > div > h6 {
+}
+.userprodiv > div > h6 {
     margin-top: 3px;
     font-size: 15px;
     margin-left: 10px;
-  }
-
-  .profileimage {
+}
+.profileimage {
     width: 50px;
     height: 50px;
     border-radius: 100px;
     object-fit: cover;
-  }
+}
 
-  .postimage {
+.postimage {
     width: 100%;
     height: 300px;
     margin-bottom: 5px;
     object-fit: cover;
     border-radius: 10px;
-  }
+}
 
-  .postmain {
+.postmain {
     background-color: white;
     padding: 20px;
     margin-bottom: 7px;
     border-radius: 10px;
     /* box-shadow: rgba(0, 0, 0, 0.253) 3.95px 3.95px 3.6px; */
-  }
-  .usernamee{
+}
+.usernamee{
     padding-top: 3px;
     margin-left: 10px;
     font-size: 14px;
     color: rgba(128, 128, 128, 0.756);
-  }
+}
 
-  .detailpost{
+.detailpost{
     font-size: 15px;
     font-weight: 300;
     padding-bottom: 5px;
-  }
+}
 
-  .footerdiv {
+.footerdiv {
     /* border-top: 1px solid rgb(206, 200, 200);
     border-bottom: 1px solid rgb(206, 200, 200); */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-  }
+}
 
-  .footerdiv > button {
+.footerdiv > button {
     border: none;
     padding: 10px;
     background-color: rgb(255, 255, 255);
@@ -370,17 +364,17 @@ p{
     display: flex;
     flex-direction: row;
     align-items: center;
-  }
+}
 
-  .sendbutton {
+.sendbutton {
     width: 30px;
     cursor: pointer;
     background-color:  #E7D184;
     object-fit: cover;
-    padding: 10px;
+    padding: 20px;
     border-radius: 18px;
-  }
-  .commentmain {
+}
+.commentmain {
     padding: 5px 10px;
     display: flex;
     flex-direction: row;
@@ -388,31 +382,31 @@ p{
     align-items: center;
     justify-content: space-between;
     /* border: 1px solid rgb(228, 225, 225); */
-  }
-  .commentprofileimage {
+}
+.commentprofileimage {
     object-fit: cover;
     width: 40px;
     height: 40px;
     border-radius: 100px;
     margin-right: 5px;
-  }
-  .commentmain > div {
+}
+.commentmain > div {
     background-color: #f4f5f7;
     padding: 10px;
     border-radius: 10px;
     width: 85%;
     margin-right: 10px;
   }
-  .writecomment {
+.writecomment {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     padding: 5px;
-  }
+}
 
-  .commentinput {
+.commentinput {
     width: 80%;
     background-color: #f4f5f7;
     height: 40px;
@@ -422,4 +416,45 @@ p{
     margin-left: 5px;
     font-size: 15px;
     padding-left: 20px;
-  }
+}
+
+.col-xl-5{
+    padding-top: 130px;
+}
+
+.maincreate{
+    margin-top: 0;
+    margin: 0 80px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 45px;
+    border-radius: 30px;
+    justify-content: center;
+    position: relative;
+}
+
+label{
+    background-color: #E7D184;
+    justify-content: center;
+    text-align: center;
+    padding: 45px;
+    height: 112px;
+    width: 110px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    margin: 12px 0 0 0;
+}
+
+.imageinsert{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.submitbuttondiv{
+    position: static;
+}
+
