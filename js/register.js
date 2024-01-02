@@ -39,7 +39,7 @@ const SignUp = () => {
         message.innerHTML = "Password does not match";
         message.style.color = "red";
     } else{
-        message.innerHTML = "Login SUCCESS";
+        message.innerHTML = "You are registered!";
         firebase.auth().createUserWithEmailAndPassword(Email.value, Password.value)
         .then((userCredential) => {
             var d = new Date().toLocaleDateString();

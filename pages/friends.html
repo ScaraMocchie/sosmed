@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>dynami</title>
+    <link rel="icon" type="image/x-icon" href="../assets/logo.png">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../style/friends.css'>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-storage.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script
+      src="https://kit.fontawesome.com/0b4039aefe.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="../style/home.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="../assets/logo.png", width="30px">
+            <h2>dynami</h2>
+        </div>
+        <form class="searchbox">
+            <input type="search" placeholder="Search...">
+            <button type="find"><i class="fa fa-search"></i></button>
+        </form>
+        <div class="menu">
+            <a onClick="profile()">
+                <i class="fa fa-user" aria-hidden="true" ></i>
+                <p style="line-height: 1.9;" >Profile</p>
+            </a>
+            <a onClick="home()">
+                <i class="fa fa-home" aria-hidden="true" ></i>
+                <p class="homemenu" >Home</p>
+            </a>
+            <a >
+                <i class="fa fa-users" aria-hidden="true" style=" color: palevioletred;"></i>
+                <p style="line-height: 2;  color: palevioletred;">Friends</p>
+            </a>
+            <a href="#">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                <p style="line-height: 2;">Add Post</p>
+            </a>
+        </div>
+        <div class="userlogout">
+            <button id="logout" onClick="logout()">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                <p>Log Out</p>
+            </button>
+        </div>
+    </nav>
+    <div class="content">
+        <div class="divider-1">
+            <div id="container" class="container-fluid maindiv">
+                <div class="container container-sm-12">
+                  <div class="col-xl-5 col-lg-6 col-md-8 col-sm-12 col-12">
+                    <div id="users" class="col-12">
+                      <div id="loaderdiv">
+                        <img src="https://www.onwebchat.com/img/spinner.gif" alt="" width="100px">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="divider-2">
+                <div class="user-profile" id="userinfo">
+                    <div class="header" style="background-image: url('../assets/pxfuel.jpg'); background-size: cover;" id="background">
+                    </div>
+                    <div class="userphoto">
+                        <img src="../assets/user-default.jpg" width="80px" height="80px" id="userprofileimglrg" style="object-fit: cover">
+                    </div>
+                    
+                    <div class="namauser">
+                        <h3 id="name">Hakuna Matata</h3>
+                        <p>@<span id="usernameeee">hakunamatata</span>
+    
+                    </div>
+                    <div class="userinfo" >
+                        <div class="posts" style="text-align: center; display: flex; flex-direction: column;">
+                            <p class="jmlh post" id="jmlhpost">120</p>
+                            <p>Posts</p>
+                        </div>
+                        <div class="followers" style="text-align: center; display: flex; flex-direction: column;">
+                            <p class="jmlh follower" id="jmlhfollower">120</p>
+                            <p>Followers</p>
+                        </div>
+                        <div class="followings" style="text-align: center; display: flex; flex-direction: column;">
+                            <p class="jmlh following" id="jmlhfollowing">120</p>
+                            <p>Followings</p>
+                        </div>
+                    </div>
+                    <div class="see">
+                        <button>Follow</button>
+                    </div>
+                </div>
+      
+    </div>
+
+     
+    <script src="../js/firebase.js"></script>
+    <script src="../js/changePage.js"></script>
+    <script src="../js/friends.js"></script>
+</body>
+</html>

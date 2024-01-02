@@ -61,9 +61,9 @@ const logout =  () => {
       console.error('Logout Error:', error);
     });
   }
-const profile= ()=>{
-  window.location.href = "../pages/profile.html"; 
-}
+// const profile= ()=>{
+//   window.location.href = "../pages/userprofile.html"; 
+// }
   function adjustInputHeight(textarea) {
     textarea.style.height = "auto";
     textarea.style.height = (textarea.scrollHeight) + "px";
@@ -175,6 +175,7 @@ firebase
         let commentarry = allposts[i].comments;
         let postmain = document.createElement("div");
         showposts.appendChild(postmain);
+        // postmain.style.height= "500px";
         postmain.setAttribute("class", "postmain");
         //post header
         let postheader = document.createElement("div");

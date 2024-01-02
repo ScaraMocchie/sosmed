@@ -10,9 +10,14 @@
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.0.4/firebase-storage.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script
+      src="https://kit.fontawesome.com/0b4039aefe.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="../style/userprofile.css">
-
+    <link rel="stylesheet" href="../style/home.css">
 </head>
 <body>
     <nav>
@@ -25,15 +30,15 @@
             <button type="find"><i class="fa fa-search"></i></button>
         </form>
         <div class="menu">
-            <a href="#">
-                <i class="fa fa-user" aria-hidden="true"></i>
-                <p style="line-height: 1.9;">Profile</p>
+            <a>
+                <i class="fa fa-user" aria-hidden="true" style=" color: palevioletred;"></i>
+                <p style="line-height: 1.9;  color: palevioletred;">Profile</p>
             </a>
-            <a href="#">
+            <a onclick="home()">
                 <i class="fa fa-home" aria-hidden="true"></i>
                 <p class="homemenu">Home</p>
             </a>
-            <a href="#">
+            <a onclick="friends()">
                 <i class="fa fa-users" aria-hidden="true"></i>
                 <p style="line-height: 2;">Friends</p>
             </a>
@@ -68,8 +73,8 @@
         <div class="usercontent">
             <div class="username">
                 <h3 id="fullname">Hakuna Matata</h3>
-                <h4>@<span>hakunamatata</span></h4>
-                <p>this is my bio ✨</p>
+                <h4 >@<span id="uname">hakunamatata</span></h4>
+                <p id="bio">this is my bio ✨</p>
                 <div class="edituser">
                     <label for="firstname" class="labels">First Name:</label>
                     <input type="text" id="firstname" class="userdatainputs">
@@ -103,8 +108,28 @@
                 </div>
                 <h3>Posts</h3>
                 
+                <h3>My Posts</h3>
+           
+  
+                    <div  id="showposts" style="height: 500px; width: 800px;"></div>
+        
+                    <div id="loaderdiv">
+                      <img
+                        src="https://www.onwebchat.com/img/spinner.gif"
+                        id="loading"
+                        width="100px"
+                      />
+                    </div>
+                    <h1 id="h1" style="display: none">Data not available</h1>
+               
             </div>
         </div>
     </div>
+
+    <script src="../js/firebase.js"></script>
+    <script src="../js/userdetail2.js"></script>
+    <script src="../js/home.js"></script>
+    <script src="../js/changePage.js"></script>
+
 </body>
 </html>
