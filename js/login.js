@@ -120,6 +120,8 @@ const google = async () => {
         ProfilePicture: "",
         CoverPicture: "",
         Description: "",
+        following : [],
+        followers : [],
         Signupdate: `${d}`,
       });
 

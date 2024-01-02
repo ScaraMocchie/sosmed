@@ -52,6 +52,8 @@ const SignUp = () => {
                 ProfilePicture: "",
                 CoverPicture: "",
                 Description: "",
+                following : [],
+                followers : [],
                 Signupdate: `${d}`,
             }
             firebase.firestore().collection("Users").doc(userCredential.user.uid).set(userdata).then((res)=>{
@@ -115,6 +117,8 @@ const SignUp = () => {
                 ProfilePicture: "",
                 CoverPicture: "",
                 Description: "",
+                following : [],
+                followers : [],
                 Signupdate: `${d}`,
               });
       
