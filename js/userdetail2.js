@@ -16,6 +16,7 @@ let fileType = "";
 
 let bio = document.getElementById("bio");
 let uname = document.getElementById("uname");
+let jmlhpost = document.getElementById("jmlhpost");
 
 let background =  document.getElementById("usercoverpicturediv");
 let userprofilepicturediv = document.getElementById("userprofilepicturediv");
@@ -222,6 +223,7 @@ firebase
         } else {
           onSnapshot.forEach((postres) => {
             allposts.push(postres.data());
+            jmlhpost.innerHTML = allposts.length;
           });
           showposts.style.display = "block";
           showposts.innerHTML = "";
