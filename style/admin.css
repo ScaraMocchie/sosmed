@@ -181,15 +181,13 @@ th {
 }
 
 .input {
-  background-color: #fcf9f6;
-  padding: 3px;
-  border: none;
+  background-color: #ffffff;
+  padding: 5px;
+  border: 1px solid #575757;
   border-radius: 3px;
 }
 
 .bar {
-  background-color: #c2c3e1;
-  padding: 5px;
   border: none;
   border-radius: 3px;
   margin-bottom: 5px;

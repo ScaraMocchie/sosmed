@@ -5,10 +5,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Admin Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"></script>
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"
+    ></script>
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"
+    ></script>
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js"
+    ></script>
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js"
+    ></script>
+    <script
+      type="module"
+      src="https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js"
+    ></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
@@ -40,6 +56,7 @@
         <h1>Welcome to Admin page!</h1>
         <h4>Here are users of Dynami</h4>
       </div>
+      <!-- <button id="addUserButton" onclick="openAddUserModal()">Add User</button> -->
       <div class="table-container">
         <table>
           <thead class="text-center">
@@ -60,35 +77,118 @@
         <div class="modal-content">
           <div class="modal-header">
             <h3 class="modal-title" id="exampleModalCenterTitle">Edit User</h3>
-            <button type="button" class="close" onclick="closeModal()">
+            <button type="button" class="close">
               <span>&times;</span>
             </button>
           </div>
           <div class="modal-body">
             <div class="bar">
-              <label for="editedUsername">Username:</label>
-              <input type="text" id="Username" class="input" style="margin-left: 34px;"/>
+              <label for="Username">Username:</label>
+              <input
+                type="text"
+                id="Username"
+                class="input"
+                style="margin-left: 34px"
+              />
             </div>
             <div class="bar">
-              <label for="email">Email: </label>
-              <input type="text" id="Email" readonly class="input" style="margin-left: 70px; color: #868585;"/><br />
+              <label for="Email">Email: </label>
+              <input
+                type="text"
+                id="Email"
+                readonly
+                class="input"
+                style="margin-left: 70px; color: #868585"
+              /><br />
             </div>
             <div class="bar">
-              <label for="firstname">First Name: </label>
-              <input type="text" id="FirstName" class="input" style="margin-left: 28px;"/><br />
+              <label for="FirstName">First Name: </label>
+              <input
+                type="text"
+                id="FirstName"
+                class="input"
+                style="margin-left: 28px"
+              /><br />
             </div>
             <div class="bar">
-              <label for="lastname">Last Name: </label>
-              <input type="text" id="LastName" class="input" style="margin-left: 29px;"/><br />
+              <label for="LastName">Last Name: </label>
+              <input
+                type="text"
+                id="LastName"
+                class="input"
+                style="margin-left: 29px"
+              /><br />
             </div>
             <div class="bar">
-              <label for="profilepicture">Profile Picture: </label>
-              <input type="image" id="ProfilePicture" class="input" style="margin-left: 5px;"/><br />
+              <label for="ProfilePicture">Profile Picture: </label>
+              <input
+                type="image"
+                id="ProfilePicture"
+                class="input"
+                style="margin-left: 5px"
+                accept="image/*"
+                onchange="handleProfilePictureChange()"
+              />
+              <img
+                id="ProfilePicturePreview"
+                src=""
+                alt="Preview"
+                style="width: 70px; height: 70px; display: none"
+              />
             </div>
           </div>
           <div class="modal-footer">
             <button onclick="updateUser()" class="update">Update</button>
             <button onclick="deleteUser()" class="delete">Delete</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal for adding a new user -->
+      <div id="addUserModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">Add User</h3>
+            <button type="button" class="close" onclick="closeAddUserModal()">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="bar">
+              <label for="NewUsername">Username:</label>
+              <input type="text" id="NewUsername" class="input" />
+            </div>
+            <div class="bar">
+              <label for="NewEmail">Email:</label>
+              <input type="text" id="NewEmail" class="input" />
+            </div>
+            <div class="bar">
+              <label for="NewFirstName">First Name:</label>
+              <input type="text" id="NewFirstName" class="input" />
+            </div>
+            <div class="bar">
+              <label for="NewLastName">Last Name:</label>
+              <input type="text" id="NewLastName" class="input" />
+            </div>
+            <div class="bar">
+              <label for="NewProfilePicture">Profile Picture:</label>
+              <input
+                type="file"
+                id="NewProfilePictureInput"
+                class="input"
+                accept="image/*"
+                onchange="handleNewProfilePictureChange()"
+              />
+              <img
+                id="NewProfilePicturePreview"
+                src=""
+                alt="Preview"
+                style="width: 70px; height: 70px; display: none"
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button onclick="addUser()" class="add">Add User</button>
           </div>
         </div>
       </div>
